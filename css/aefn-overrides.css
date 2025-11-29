@@ -252,6 +252,43 @@
     .hero-logo { max-height: 110px; }
 }
 
+/* Compact layout tweaks for GitHub Pages / smaller viewports
+   - Reduce vertical spacing across sections
+   - Slightly lower hero height so pages feel denser and fit more content
+   - Make contact headings clearly white on the contact background
+*/
+.section-padding is a commonly used utility in template; reduce it to make the page more compact
+.section-padding { padding: 40px 0 !important; }
+
+.hero-carousel-image { height: 65vh; }
+.hero-logo { max-height: 140px; }
+
+/* Reduce footer vertical padding so it occupies less height */
+.site-footer { padding: 28px 0 !important; }
+.site-footer .site-footer-title { margin-bottom: 8px; font-size: 0.95rem; }
+.copyright-text { margin-top: 12px !important; font-size: 0.85rem; }
+
+/* Contact section: force headings and important text to white for readability */
+.contact-section h2,
+.contact-section h4,
+.contact-section p,
+.contact-section .site-footer-title,
+.contact-section .small {
+    color: #ffffff !important;
+}
+
+/* Slightly tighten accordion spacing */
+.accordion-button { padding: 0.6rem 1rem !important; }
+.accordion-body { padding: 0.8rem 1rem !important; }
+
+/* Reduce margins on custom blocks to compact listing */
+.custom-block { margin-bottom: 12px !important; padding: 14px !important; }
+
+@media (max-width: 991px) {
+    .hero-carousel-image { height: 50vh; }
+    .section-padding { padding: 28px 0 !important; }
+}
+
 /* Malla image styling */
 .malla-image {
     max-width: 100%;
