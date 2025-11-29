@@ -1,0 +1,68 @@
+[
+  {
+    "nombre": "Gema Gonzáles, Ph.D",
+    "titulo": "Decana de la Escuela de Ciencias Físicas y Nanotecnología",
+    "area": ["nanotecnologia"],
+    "areas_investigacion": [
+      "Sintesis de Materiales",
+      "Caracterización de Materiales",
+      "Biomateriales"
+    ],
+    "foto": "images/profesores/Gema.jpg",
+    "email": "ggonzalez@yachaytech.edu.ec",
+    "telefono": "",
+    "oficina": "Decanato ECFN",
+    "bio": "Doctor en Física con más de 20 años de experiencia en investigación teórica. Especializado en mecánica cuántica y sus aplicaciones.",
+    "educacion": [
+      "PhD en Ciencia de Materiales - Imperial College, UK",
+      "MSc en Tecnología de Materiales - Imperial College, UK"
+    ],
+    "publicaciones": [
+      "Biogenic synthesis of iron oxide nanoparticles using Moringa oleifera and chitosan and its evaluation on corn germination (2020)",
+      "In situ synthesis and long-term stabilization of nanosilver in poly (vinyl acetate-co-butyl acrylate-co-neodecanoate) matrix for antibacterial applications (2020)",
+      "Electrochemical Sensor Based on Prussian Blue Electrochemically Deposited at ZrO2 Doped Carbon Nanotubes Glassy Carbon Modified Electrode (2020)"
+    ],
+    "proyectos": [
+      "Proyecto de Mecánica Cuántica Aplicada - SENESCYT",
+      "Investigación en Física de Altas Energías - Colaboración Internacional"
+    ],
+    "social": {
+      "linkedin": "https://ec.linkedin.com/in/gema-gonzalez-5823321b2",
+      "google_scholar": "https://scholar.google.com/citations?user=9QikXzcAAAAJ&hl=en",
+      "github": ""
+    }
+  },
+  {
+    "nombre": "Wladimir Banda, Ph.D",
+    "titulo": "Coordinador de la Maestría en Física Fundamental",
+    "area": ["astronomia","computacion"],
+    "areas_investigacion": [
+      "Nanomateriales",
+      "Electrónica Molecular",
+      "Microscopía de Alta Resolución"
+    ],
+    "foto": "",
+    "email": "maria.gonzalez@universidad.edu.ec",
+    "telefono": "+593 6 264 0000 ext. 1235",
+    "oficina": "Edificio de Nanotecnología, Lab 205",
+    "bio": "Investigadora líder en nanotecnología con enfoque en desarrollo de nuevos materiales para aplicaciones energéticas.",
+    "educacion": [
+      "PhD en Nanotecnología - Stanford University",
+      "MSc en Ciencia de Materiales - ETH Zurich",
+      "Ingeniería en Física - Escuela Politécnica Nacional"
+    ],
+    "publicaciones": [
+      "Nanomaterials in Renewable Energy Applications (2023)",
+      "Advanced Microscopy Techniques for Nanostructures (2021)"
+    ],
+    "proyectos": [
+      "Desarrollo de Nanomateriales para Energía Solar",
+      "Caracterización de Materiales 2D"
+    ],
+    "social": {
+      "linkedin": "https://linkedin.com/in/maria-gonzalez",
+      "google_scholar": "",
+      "github": "https://github.com/mgonzalez"
+    }
+  }
+]
