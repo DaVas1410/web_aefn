@@ -102,3 +102,24 @@
     })(window.jQuery);
 
 
+
+    /* Open navbar dropdowns on hover for desktop */
+    (function($){
+      'use strict';
+      function enableHoverDropdown(){
+        if($(window).width() > 992){
+          $('.navbar .dropdown').on('mouseenter.hoverDropdown', function(){
+            $(this).addClass('show');
+            $(this).find('.dropdown-menu').addClass('show');
+          }).on('mouseleave.hoverDropdown', function(){
+            $(this).removeClass('show');
+            $(this).find('.dropdown-menu').removeClass('show');
+          });
+        } else {
+          $('.navbar .dropdown').off('.hoverDropdown');
+        }
+      }
+      $(document).ready(function(){ enableHoverDropdown(); $(window).on('resize', enableHoverDropdown); });
+    })(window.jQuery);
+
+

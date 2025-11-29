@@ -297,3 +297,6 @@
     display: none !important;
     height: 0 !important;
 }
+
+/* Investigation pages: ensure blue palette (use site defaults) */
+/* Investigation pages will use the site's default palette (inherit CSS variables from root). */
