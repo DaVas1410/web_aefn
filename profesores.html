@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Conoce a los profesores de Física y Nanotecnología">
+        <meta name="author" content="AEFN">
+
+        <title>Profesores - AEFN</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="css/aefn-theme.css" rel="stylesheet">
+        <link href="css/aefn-components.css" rel="stylesheet">
+        <link href="css/aefn-overrides.css" rel="stylesheet">
+        <link href="css/aefn-color-override.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <main>
+            <!-- Navegación (igual que en nosotros.html) -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-atom"></i>
+                        <span>AEFN</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Inicio</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="nosotros.html">Nosotros</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" href="profesores.html">Profesores</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="clubes.html">Clubes</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="directiva.html">Directiva AEFN</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="calendario.html">Calendario</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="resourcesDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Material de Estudio</a></li>
+                                    <li><a class="dropdown-item" href="vinculacion.html">Vinculación</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="login.html" class="btn custom-btn custom-border-btn">Iniciar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <header class="hero-section d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Nuestros Profesores</h1>
+                            <h6 class="text-center">Conoce a los docentes e investigadores</h6>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filtros de búsqueda -->
+            <section class="section-padding">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="custom-block bg-white shadow-lg p-4">
+                                <h4 class="mb-3">Filtrar por área</h4>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class="btn custom-btn active" data-filter="all">Todos</button>
+                                    <button class="btn custom-btn" data-filter="fisica-teorica">Física Teórica</button>
+                                    <button class="btn custom-btn" data-filter="fisica-experimental">Física Experimental</button>
+                                    <button class="btn custom-btn" data-filter="nanotecnologia">Nanotecnología</button>
+                                    <button class="btn custom-btn" data-filter="matematicas">Matemáticas</button>
+                                    <button class="btn custom-btn" data-filter="computacion">Computación</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid de Profesores -->
+                    <div class="row" id="profesores-grid">
+                        <!-- Template para profesor -->
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <div class="custom-block bg-white shadow-lg h-100">
+                                <div class="profesor-card">
+                                    <div class="position-relative">
+                                        <!-- Espacio para foto del profesor -->
+                                        <div class="profesor-foto" style="height: 250px; background-color: var(--light-color);">
+                                            <i class="bi-person display-1 position-absolute top-50 start-50 translate-middle"></i>
+                                        </div>
+                                        <div class="badge-area position-absolute bottom-0 start-0 m-3">
+                                            <span class="badge bg-primary">Física Teórica</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-4">
+                                        <h4 class="mb-2">[Nombre del Profesor]</h4>
+                                        <p class="mb-3">[Título y Especialización]</p>
+                                        
+                                        <h6 class="mb-3">Áreas de Investigación</h6>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2">
+                                                <i class="bi-check-circle-fill me-2"></i>
+                                                [Área de investigación 1]
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="bi-check-circle-fill me-2"></i>
+                                                [Área de investigación 2]
+                                            </li>
+                                        </ul>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#profesorModal">
+                                                Ver Perfil Completo
+                                            </button>
+                                            <div class="social-links">
+                                                <a href="#" class="me-2"><i class="bi-linkedin"></i></a>
+                                                <a href="#" class="me-2"><i class="bi-google"></i></a>
+                                                <a href="#"><i class="bi-github"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin template profesor -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal para detalles del profesor -->
+            <div class="modal fade" id="profesorModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">[Nombre del Profesor]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- Foto del profesor -->
+                                    <div class="profesor-foto mb-3" style="height: 200px; background-color: var(--light-color);">
+                                        <i class="bi-person display-1 position-absolute top-50 start-50 translate-middle"></i>
+                                    </div>
+                                    
+                                    <!-- Información de contacto -->
+                                    <div class="mb-3">
+                                        <h6>Contacto</h6>
+                                        <p class="mb-1"><i class="bi-envelope me-2"></i>[Email]</p>
+                                        <p class="mb-1"><i class="bi-telephone me-2"></i>[Teléfono]</p>
+                                        <p><i class="bi-geo-alt me-2"></i>[Oficina]</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-8">
+                                    <!-- Biografía -->
+                                    <h6>Biografía</h6>
+                                    <p>[Biografía detallada]</p>
+
+                                    <!-- Educación -->
+                                    <h6>Educación</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">[Grado académico 1]</li>
+                                        <li class="mb-2">[Grado académico 2]</li>
+                                    </ul>
+
+                                    <!-- Publicaciones -->
+                                    <h6>Publicaciones Destacadas</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">[Publicación 1]</li>
+                                        <li class="mb-2">[Publicación 2]</li>
+                                    </ul>
+
+                                    <!-- Proyectos -->
+                                    <h6>Proyectos de Investigación</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">[Proyecto 1]</li>
+                                        <li class="mb-2">[Proyecto 2]</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer (igual que en nosotros.html) -->
+        <footer class="site-footer section-padding">
+            <!-- ... contenido del footer ... -->
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+
+        <!-- Script para filtrado de profesores -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const filterButtons = document.querySelectorAll('[data-filter]');
+                
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Remover clase active de todos los botones
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        // Agregar clase active al botón clickeado
+                        this.classList.add('active');
+                        
+                        const filterValue = this.getAttribute('data-filter');
+                        // Aquí iría la lógica de filtrado
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

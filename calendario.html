@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Calendario de eventos AEFN">
+        <meta name="author" content="AEFN">
+
+        <title>Calendario - AEFN</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="css/aefn-theme.css" rel="stylesheet">
+        <link href="css/aefn-components.css" rel="stylesheet">
+        <link href="css/aefn-overrides.css" rel="stylesheet">
+        <link href="css/aefn-color-override.css" rel="stylesheet">
+        <style>
+            .countdown-container {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                padding: 30px;
+                backdrop-filter: blur(10px);
+            }
+            .countdown-box {
+                text-align: center;
+                padding: 20px;
+                margin: 10px;
+                border-radius: 10px;
+                background: var(--primary-color);
+                color: white;
+            }
+            .countdown-number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .countdown-label {
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+            .event-card {
+                transition: transform 0.3s ease;
+            }
+            .event-card:hover {
+                transform: translateY(-5px);
+            }
+            .calendar-container {
+                background: white;
+                border-radius: 15px;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .calendar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .calendar-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+            }
+            .calendar-day {
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+            .calendar-day:hover {
+                background-color: var(--primary-color);
+                color: white;
+            }
+            .calendar-day.has-event {
+                background-color: var(--primary-color);
+                color: white;
+            }
+            .event-tooltip {
+                position: absolute;
+                background: white;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                display: none;
+            }
+            .category-badge {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+                border-radius: 15px;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <main>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-atom"></i>
+                        <span>AEFN</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Inicio</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="nosotros.html">Nosotros</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="profesores.html">Profesores</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="clubes.html">Clubes</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="directiva.html">Directiva AEFN</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" href="calendario.html">Calendario</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="resourcesDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Material de Estudio</a></li>
+                                    <li><a class="dropdown-item" href="vinculacion.html">Vinculación</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="login.html" class="btn custom-btn custom-border-btn">Iniciar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <header class="hero-section d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-white text-center mb-4">Próximo Evento</h1>
+                            
+                            <!-- Countdown Container -->
+                            <div class="countdown-container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3 col-6">
+                                        <div class="countdown-box">
+                                            <div id="countdown-days" class="countdown-number">00</div>
+                                            <div class="countdown-label">Días</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="countdown-box">
+                                            <div id="countdown-hours" class="countdown-number">00</div>
+                                            <div class="countdown-label">Horas</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="countdown-box">
+                                            <div id="countdown-minutes" class="countdown-number">00</div>
+                                            <div class="countdown-label">Minutos</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="countdown-box">
+                                            <div id="countdown-seconds" class="countdown-number">00</div>
+                                            <div class="countdown-label">Segundos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <h4 class="text-white" id="next-event-title">Asamblea General AEFN</h4>
+                                    <p class="text-white" id="next-event-date">15 de Septiembre, 2025 - 14:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <!-- Calendar Column -->
+                        <div class="col-lg-8">
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button class="btn custom-btn" id="prevMonth">
+                                        <i class="bi-chevron-left"></i>
+                                    </button>
+                                    <h3 id="currentMonth">Septiembre 2025</h3>
+                                    <button class="btn custom-btn" id="nextMonth">
+                                        <i class="bi-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <div class="calendar-grid" id="calendarDays">
+                                    <!-- Days will be populated by JavaScript -->
+                                </div>
+                            </div>
+
+                            <!-- Events List -->
+                            <div class="mt-5">
+                                <h3 class="mb-4">Próximos Eventos</h3>
+                                <div class="row" id="eventsList">
+                                    <!-- Event cards will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filters Column -->
+                        <div class="col-lg-4">
+                            <div class="custom-block bg-white shadow-lg">
+                                <h4 class="mb-4">Filtros</h4>
+                                <div class="mb-4">
+                                    <h6>Categorías</h6>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="academic" id="academicFilter" checked>
+                                        <label class="form-check-label" for="academicFilter">
+                                            Académicos
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="social" id="socialFilter" checked>
+                                        <label class="form-check-label" for="socialFilter">
+                                            Sociales
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="club" id="clubFilter" checked>
+                                        <label class="form-check-label" for="clubFilter">
+                                            Clubes
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h6>Clubes Específicos</h6>
+                                <select class="form-select mb-4" id="clubSelect">
+                                    <option value="all">Todos los clubes</option>
+                                    <option value="astronomy">Club de Astronomía</option>
+                                    <option value="programming">Club de Programación</option>
+                                    <option value="research">Club de Investigación</option>
+                                </select>
+
+                                <button class="btn custom-btn w-100" id="resetFilters">
+                                    Reiniciar Filtros
+                                </button>
+                            </div>
+
+                            <!-- Add Event Button (for admins) -->
+                            <div class="mt-4">
+                                <button class="btn custom-btn w-100" data-bs-toggle="modal" data-bs-target="#addEventModal">
+                                    <i class="bi-plus-circle me-2"></i> Agregar Evento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Add Event Modal -->
+        <div class="modal fade" id="addEventModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Nuevo Evento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addEventForm">
+                            <div class="mb-3">
+                                <label class="form-label">Título del Evento</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha y Hora</label>
+                                <input type="datetime-local" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripción</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Categoría</label>
+                                <select class="form-select" required>
+                                    <option value="academic">Académico</option>
+                                    <option value="social">Social</option>
+                                    <option value="club">Club</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Club (si aplica)</label>
+                                <select class="form-select">
+                                    <option value="">No aplica</option>
+                                    <option value="astronomy">Club de Astronomía</option>
+                                    <option value="programming">Club de Programación</option>
+                                    <option value="research">Club de Investigación</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn custom-btn">Guardar Evento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer section-padding">
+            <!-- Footer content -->
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+            // Countdown Timer
+            function updateCountdown() {
+                const eventDate = new Date('2025-09-15T14:00:00'); // Replace with your event date
+                const now = new Date();
+                const diff = eventDate - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+                    document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+                    document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // Calendar functionality
+            function generateCalendar() {
+                const now = new Date();
+                const currentMonth = now.getMonth();
+                const currentYear = now.getFullYear();
+                const firstDay = new Date(currentYear, currentMonth, 1);
+                const lastDay = new Date(currentYear, currentMonth + 1, 0);
+                const daysInMonth = lastDay.getDate();
+                const startingDay = firstDay.getDay();
+
+                const calendarGrid = document.getElementById('calendarDays');
+                calendarGrid.innerHTML = '';
+
+                // Add day headers
+                const days = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+                days.forEach(day => {
+                    const dayHeader = document.createElement('div');
+                    dayHeader.className = 'calendar-day fw-bold';
+                    dayHeader.textContent = day;
+                    calendarGrid.appendChild(dayHeader);
+                });
+
+                // Add empty cells for days before the first of the month
+                for (let i = 0; i < startingDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'calendar-day';
+                    calendarGrid.appendChild(emptyDay);
+                }
+
+                // Add days of the month
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    if (i === 15) { // Example event day
+                        dayElement.classList.add('has-event');
+                    }
+                    dayElement.textContent = i;
+                    calendarGrid.appendChild(dayElement);
+                }
+            }
+
+            // Initialize calendar
+            generateCalendar();
+
+            // Event listeners for month navigation
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                // Implementation for previous month
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                // Implementation for next month
+            });
+
+            // Example events data
+            const events = [
+                {
+                    title: 'Asamblea General AEFN',
+                    date: '2025-09-15',
+                    time: '14:00',
+                    category: 'academic',
+                    description: 'Primera asamblea general del semestre'
+                },
+                // Add more events here
+            ];
+
+            // Populate events list
+            function populateEvents() {
+                const eventsList = document.getElementById('eventsList');
+                events.forEach(event => {
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'col-md-6 mb-4';
+                    eventCard.innerHTML = `
+                        <div class="custom-block bg-white shadow-lg event-card">
+                            <div class="p-4">
+                                <span class="category-badge bg-primary text-white">${event.category}</span>
+                                <h5 class="mt-2">${event.title}</h5>
+                                <p class="mb-0">
+                                    <i class="bi-calendar me-2"></i>${event.date}
+                                    <br>
+                                    <i class="bi-clock me-2"></i>${event.time}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    eventsList.appendChild(eventCard);
+                });
+            }
+
+            populateEvents();
+        </script>
+    </body>
+</html>
