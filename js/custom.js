@@ -50,4 +50,55 @@
   
   })(window.jQuery);
 
+  /* Ensure hero logo sits below the navbar by setting top padding dynamically */
+  (function($){
+    'use strict';
+    function adjustHeroLogoPadding(){
+      var logoSection = $('.hero-logo-section');
+      if(!logoSection.length) return;
+      // keep a small fixed gap now that logo is below the carousel
+      logoSection.css('padding-top', '18px');
+    }
+    $(document).ready(function(){
+      adjustHeroLogoPadding();
+      $(window).on('resize scroll', function(){ adjustHeroLogoPadding(); });
+    });
+    
+      /* Lightbox handler */
+      function initLightbox(){
+          var overlay = $('#lightboxOverlay');
+          var img = overlay.find('.lightbox-img');
+
+          // Open
+          $(document).on('click', '.lightbox-link', function(e){
+              e.preventDefault();
+              var src = $(this).data('src') || $(this).attr('href');
+              if(!src) return;
+              img.attr('src', src);
+              overlay.addClass('active').attr('aria-hidden','false');
+              // prevent body scroll
+              $('body').css('overflow','hidden');
+          });
+
+          // Close handlers
+          overlay.on('click', function(e){
+              if(e.target === this) closeLightbox();
+          });
+          overlay.find('.lightbox-close').on('click', function(){ closeLightbox(); });
+
+          $(document).on('keydown', function(e){
+              if(e.key === 'Escape') closeLightbox();
+          });
+
+          function closeLightbox(){
+              overlay.removeClass('active').attr('aria-hidden','true');
+              img.attr('src','');
+              $('body').css('overflow','');
+          }
+      }
+
+      $(document).ready(function(){ initLightbox(); });
+
+    })(window.jQuery);
+
 
