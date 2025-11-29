@@ -20,11 +20,36 @@
         <link href="css/aefn-components.css" rel="stylesheet">
         <link href="css/aefn-overrides.css" rel="stylesheet">
         <link href="css/aefn-color-override.css" rel="stylesheet">
+        
+        <style>
+            .profesor-foto {
+                border-radius: 10px 10px 0 0;
+                background-color: #f0f0f0;
+                position: relative;
+                background-size: cover;
+                background-position: center;
+            }
+            .custom-block {
+                transition: transform 0.3s ease;
+            }
+            .custom-block:hover {
+                transform: translateY(-5px);
+            }
+            .social-links a {
+                color: #6c757d;
+                font-size: 1.2rem;
+                transition: color 0.3s;
+                text-decoration: none;
+            }
+            .social-links a:hover {
+                color: var(--primary-color);
+            }
+        </style>
     </head>
     
     <body>
         <main>
-            <!-- Navegación (igual que en nosotros.html) -->
+            <!-- Navegación -->
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">
@@ -55,7 +80,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="investigacion.html">Investigación</a>
+                                <a class="nav-link" href="directiva.html">Directiva AEFN</a>
                             </li>
     
                             <li class="nav-item">
@@ -66,10 +91,14 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="resourcesDropdown">
                                     <li><a class="dropdown-item" href="login.html">Material de Estudio</a></li>
-                                    <li><a class="dropdown-item" href="https://www.vinculacion-ecfn.com/" target="_blank" rel="noopener noreferrer">Vinculación</a></li>
+                                    <li><a class="dropdown-item" href="vinculacion.html">Vinculación</a></li>
                                 </ul>
                             </li>
                         </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="login.html" class="btn custom-btn custom-border-btn">Iniciar Sesión</a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -104,53 +133,9 @@
                         </div>
                     </div>
 
-                    <!-- Grid de Profesores -->
+                    <!-- Grid de Profesores (se llenará dinámicamente) -->
                     <div class="row" id="profesores-grid">
-                        <!-- Template para profesor -->
-                        <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            <div class="custom-block bg-white shadow-lg h-100">
-                                <div class="profesor-card">
-                                    <div class="position-relative">
-                                        <!-- Espacio para foto del profesor -->
-                                        <div class="profesor-foto" style="height: 250px; background-color: var(--light-color);">
-                                            <i class="bi-person display-1 position-absolute top-50 start-50 translate-middle"></i>
-                                        </div>
-                                        <div class="badge-area position-absolute bottom-0 start-0 m-3">
-                                            <span class="badge bg-primary">Física Teórica</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="p-4">
-                                        <h4 class="mb-2">[Nombre del Profesor]</h4>
-                                        <p class="mb-3">[Título y Especialización]</p>
-                                        
-                                        <h6 class="mb-3">Áreas de Investigación</h6>
-                                        <ul class="list-unstyled mb-4">
-                                            <li class="mb-2">
-                                                <i class="bi-check-circle-fill me-2"></i>
-                                                [Área de investigación 1]
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="bi-check-circle-fill me-2"></i>
-                                                [Área de investigación 2]
-                                            </li>
-                                        </ul>
-
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#profesorModal">
-                                                Ver Perfil Completo
-                                            </button>
-                                            <div class="social-links">
-                                                <a href="#" class="me-2"><i class="bi-linkedin"></i></a>
-                                                <a href="#" class="me-2"><i class="bi-google"></i></a>
-                                                <a href="#"><i class="bi-github"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fin template profesor -->
+                        <!-- Los profesores se cargarán aquí dinámicamente -->
                     </div>
                 </div>
             </section>
@@ -160,60 +145,18 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">[Nombre del Profesor]</h5>
+                            <h5 class="modal-title"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <!-- Foto del profesor -->
-                                    <div class="profesor-foto mb-3" style="height: 200px; background-color: var(--light-color);">
-                                        <i class="bi-person display-1 position-absolute top-50 start-50 translate-middle"></i>
-                                    </div>
-                                    
-                                    <!-- Información de contacto -->
-                                    <div class="mb-3">
-                                        <h6>Contacto</h6>
-                                        <p class="mb-1"><i class="bi-envelope me-2"></i>[Email]</p>
-                                        <p class="mb-1"><i class="bi-telephone me-2"></i>[Teléfono]</p>
-                                        <p><i class="bi-geo-alt me-2"></i>[Oficina]</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-8">
-                                    <!-- Biografía -->
-                                    <h6>Biografía</h6>
-                                    <p>[Biografía detallada]</p>
-
-                                    <!-- Educación -->
-                                    <h6>Educación</h6>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">[Grado académico 1]</li>
-                                        <li class="mb-2">[Grado académico 2]</li>
-                                    </ul>
-
-                                    <!-- Publicaciones -->
-                                    <h6>Publicaciones Destacadas</h6>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">[Publicación 1]</li>
-                                        <li class="mb-2">[Publicación 2]</li>
-                                    </ul>
-
-                                    <!-- Proyectos -->
-                                    <h6>Proyectos de Investigación</h6>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">[Proyecto 1]</li>
-                                        <li class="mb-2">[Proyecto 2]</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <!-- El contenido se llenará dinámicamente -->
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!-- Footer (igual que en nosotros.html) -->
+       <!-- Footer (igual que en nosotros.html) -->
         <footer class="site-footer section-padding">
             <!-- ... contenido del footer ... -->
         </footer>
@@ -224,24 +167,8 @@
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
-
-        <!-- Script para filtrado de profesores -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const filterButtons = document.querySelectorAll('[data-filter]');
-                
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        // Remover clase active de todos los botones
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        // Agregar clase active al botón clickeado
-                        this.classList.add('active');
-                        
-                        const filterValue = this.getAttribute('data-filter');
-                        // Aquí iría la lógica de filtrado
-                    });
-                });
-            });
-        </script>
+        
+        <!-- Script específico para profesores -->
+        <script src="js/profesores.js"></script>
     </body>
 </html>
