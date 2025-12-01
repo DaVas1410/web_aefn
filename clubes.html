@@ -90,146 +90,23 @@
 
             <section class="section-padding">
                 <div class="container">
-                    <!-- Club de Astronomía -->
-                    <div class="row mb-5">
-                        <div class="col-12">
-                            <div class="custom-block bg-white shadow-lg">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4">
-                                        <div class="club-logo-container p-4 text-center">
-                                            <!-- Espacio para logo del club -->
-                                            <i class="bi-stars display-1"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <div class="p-4">
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <h3>Club de Astronomía</h3>
-                                                <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#clubModal1">
-                                                    Unirse al Club
-                                                </button>
-                                            </div>
-                                            <p class="mb-3">Explora el universo y sus misterios con nosotros. Realizamos observaciones nocturnas, charlas sobre astronomía y participamos en eventos científicos.</p>
-                                            
-                                            <h5 class="mb-3">Directiva</h5>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <p class="mb-1"><strong>Presidente:</strong> [Nombre]</p>
-                                                    <p class="mb-3"><strong>Contacto:</strong> [Email]</p>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <p class="mb-1"><strong>Vicepresidente:</strong> [Nombre]</p>
-                                                    <p class="mb-3"><strong>Secretario:</strong> [Nombre]</p>
-                                                </div>
-                                            </div>
-
-                                            <h5 class="mb-3">Próximas Actividades</h5>
-                                            <ul class="list-unstyled">
-                                                <li class="mb-2">
-                                                    <i class="bi-calendar-event me-2"></i>
-                                                    [Fecha] - [Actividad]
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Club de Programación Científica -->
-                    <div class="row mb-5">
-                        <div class="col-12">
-                            <div class="custom-block bg-white shadow-lg">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4">
-                                        <div class="club-logo-container p-4 text-center">
-                                            <i class="bi-code-square display-1"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <div class="p-4">
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <h3>Club de Programación Científica</h3>
-                                                <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#clubModal2">
-                                                    Unirse al Club
-                                                </button>
-                                            </div>
-                                            <p class="mb-3">Aprende a utilizar herramientas computacionales para la física y la nanotecnología. Python, MATLAB, y más.</p>
-                                            
-                                            <!-- Directiva y actividades similar al club anterior -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Club de Investigación -->
-                    <div class="row mb-5">
-                        <div class="col-12">
-                            <div class="custom-block bg-white shadow-lg">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4">
-                                        <div class="club-logo-container p-4 text-center">
-                                            <i class="bi-microscope display-1"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <div class="p-4">
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <h3>Club de Investigación</h3>
-                                                <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#clubModal3">
-                                                    Unirse al Club
-                                                </button>
-                                            </div>
-                                            <p class="mb-3">Participa en proyectos de investigación, aprende metodologías y desarrolla tus propias ideas científicas.</p>
-                                            
-                                            <!-- Directiva y actividades similar al club anterior -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Grid de clubes (se carga dinámicamente) -->
+                    <div id="clubesList">
+                        <p class="text-center text-muted">Cargando clubes...</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Modal para unirse a un club -->
-            <div class="modal fade" id="clubModal1" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
+            <!-- Modal para detalles del club -->
+            <div class="modal fade" id="clubModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Unirse al Club de Astronomía</h5>
+                            <h5 class="modal-title"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombre" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email institucional</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="semestre" class="form-label">Semestre</label>
-                                    <select class="form-select" id="semestre" required>
-                                        <option value="">Selecciona tu semestre</option>
-                                        <option value="1">Primer semestre</option>
-                                        <option value="2">Segundo semestre</option>
-                                        <!-- Más opciones -->
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="motivacion" class="form-label">¿Por qué te gustaría unirte?</label>
-                                    <textarea class="form-control" id="motivacion" rows="3" required></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn custom-btn">Enviar solicitud</button>
+                            <!-- El contenido se cargará dinámicamente -->
                         </div>
                     </div>
                 </div>
@@ -298,8 +175,7 @@
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
+        <script src="js/clubes.js"></script>
         <script src="js/custom.js"></script>
     </body>
 </html>

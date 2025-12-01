@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Panel administrativo - AEFN">
+        <meta name="author" content="AEFN">
+
+        <title>Admin - AEFN</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="css/aefn-theme.css" rel="stylesheet">
+        <link href="css/aefn-components.css" rel="stylesheet">
+        <link href="css/aefn-overrides.css" rel="stylesheet">
+        <link href="css/aefn-color-override.css" rel="stylesheet">
+
+        <style>
+            .admin-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .admin-section {
+                margin-bottom: 2rem;
+            }
+            .form-section {
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin-bottom: 1.5rem;
+            }
+            .nav-tabs .nav-link {
+                color: #6c757d;
+            }
+            .nav-tabs .nav-link.active {
+                background-color: #f8f9fa;
+                border-bottom: 3px solid var(--primary-color);
+            }
+            .data-table {
+                font-size: 0.9rem;
+            }
+            .btn-action {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.85rem;
+                margin: 0.1rem;
+            }
+            .alert-info {
+                background-color: #e7f3ff;
+                border-color: #b3d9ff;
+                color: #004085;
+            }
+        </style>
+    </head>
+    
+    <body id="top">
+        <main>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-atom"></i>
+                        <span>AEFN - Admin</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Volver al sitio</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-outline-danger btn-sm" id="logoutBtn">
+                                <i class="bi-box-arrow-left me-1"></i> Salir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="section-padding">
+                <div class="container admin-container">
+                    <!-- Verificación de sesión -->
+                    <div id="loginContainer" class="row mb-4" style="display:none;">
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <div class="custom-block bg-white shadow-lg p-4">
+                                <h3 class="mb-4">Acceso Administrativo</h3>
+                                <form id="loginForm">
+                                    <div class="mb-3">
+                                        <label for="adminPassword" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="adminPassword" required>
+                                    </div>
+                                    <button type="submit" class="btn custom-btn w-100">Ingresar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel Admin (oculto hasta autenticación) -->
+                    <div id="adminPanel" style="display:none;">
+                        <h2 class="mb-4">Panel de Administración</h2>
+
+                        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="tab-clubes" data-bs-toggle="tab" data-bs-target="#pane-clubes" type="button" role="tab" aria-controls="pane-clubes" aria-selected="true">Clubes</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-profesores" data-bs-toggle="tab" data-bs-target="#pane-profesores" type="button" role="tab" aria-controls="pane-profesores" aria-selected="false">Profesores</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-eventos" data-bs-toggle="tab" data-bs-target="#pane-eventos" type="button" role="tab" aria-controls="pane-eventos" aria-selected="false">Eventos</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-grupos" data-bs-toggle="tab" data-bs-target="#pane-grupos" type="button" role="tab" aria-controls="pane-grupos" aria-selected="false">Grupos de Investigación</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-backup" data-bs-toggle="tab" data-bs-target="#pane-backup" type="button" role="tab" aria-controls="pane-backup" aria-selected="false">Respaldo de Datos</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="adminTabContent">
+                            <!-- CLUBES -->
+                            <div class="tab-pane fade show active" id="pane-clubes" role="tabpanel" aria-labelledby="tab-clubes">
+                                <div class="admin-section">
+                                    <h4>Gestionar Clubes</h4>
+                                    <div class="form-section">
+                                        <h5>Agregar Nuevo Club</h5>
+                                        <form id="formClub">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="clubNombre" class="form-label">Nombre del Club</label>
+                                                    <input type="text" class="form-control" id="clubNombre" name="nombre" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="clubId" class="form-label">ID (sin espacios)</label>
+                                                    <input type="text" class="form-control" id="clubId" name="id" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="clubDescripcion" class="form-label">Descripción Corta</label>
+                                                <input type="text" class="form-control" id="clubDescripcion" name="descripcion" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="clubDescripcionLarga" class="form-label">Descripción Larga</label>
+                                                <textarea class="form-control" id="clubDescripcionLarga" name="descripcion_larga" rows="3" required></textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="clubIcono" class="form-label">Icono (Bootstrap Icon)</label>
+                                                    <input type="text" class="form-control" id="clubIcono" name="icono" placeholder="bi-stars" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="clubEmail" class="form-label">Email de Contacto</label>
+                                                    <input type="email" class="form-control" id="clubEmail" name="contacto_email" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn custom-btn">Agregar Club</button>
+                                        </form>
+                                    </div>
+                                    <div id="clubesList"></div>
+                                </div>
+                            </div>
+
+                            <!-- PROFESORES -->
+                            <div class="tab-pane fade" id="pane-profesores" role="tabpanel" aria-labelledby="tab-profesores">
+                                <div class="admin-section">
+                                    <h4>Gestionar Profesores</h4>
+                                    <div class="alert alert-info mb-3">
+                                        <i class="bi-info-circle-fill me-2"></i>
+                                        Los profesores se editan directamente en el archivo JSON. Aquí puedes ver un resumen.
+                                    </div>
+                                    <div id="profesoresList"></div>
+                                </div>
+                            </div>
+
+                            <!-- EVENTOS -->
+                            <div class="tab-pane fade" id="pane-eventos" role="tabpanel" aria-labelledby="tab-eventos">
+                                <div class="admin-section">
+                                    <h4>Gestionar Eventos</h4>
+                                    <div class="form-section">
+                                        <h5>Agregar Nuevo Evento</h5>
+                                        <form id="formEvento">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="eventoTitulo" class="form-label">Título</label>
+                                                    <input type="text" class="form-control" id="eventoTitulo" name="titulo" required>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="eventoFecha" class="form-label">Fecha y Hora</label>
+                                                    <input type="datetime-local" class="form-control" id="eventoFecha" name="fecha" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="eventoDescripcion" class="form-label">Descripción</label>
+                                                <textarea class="form-control" id="eventoDescripcion" name="descripcion" rows="2" required></textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="eventoUbicacion" class="form-label">Ubicación</label>
+                                                    <input type="text" class="form-control" id="eventoUbicacion" name="ubicacion">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="eventoTipo" class="form-label">Tipo</label>
+                                                    <select class="form-select" id="eventoTipo" name="tipo" required>
+                                                        <option value="">Seleccionar</option>
+                                                        <option value="taller">Taller</option>
+                                                        <option value="seminario">Seminario</option>
+                                                        <option value="charla">Charla</option>
+                                                        <option value="competencia">Competencia</option>
+                                                        <option value="reunion">Reunión</option>
+                                                        <option value="otro">Otro</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="eventoEstado" class="form-label">Estado</label>
+                                                    <select class="form-select" id="eventoEstado" name="estado" required>
+                                                        <option value="proximo">Próximo</option>
+                                                        <option value="en-progreso">En Progreso</option>
+                                                        <option value="finalizado">Finalizado</option>
+                                                        <option value="cancelado">Cancelado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn custom-btn">Agregar Evento</button>
+                                        </form>
+                                    </div>
+                                    <div id="eventosList"></div>
+                                </div>
+                            </div>
+
+                            <!-- GRUPOS -->
+                            <div class="tab-pane fade" id="pane-grupos" role="tabpanel" aria-labelledby="tab-grupos">
+                                <div class="admin-section">
+                                    <h4>Gestionar Grupos de Investigación</h4>
+                                    <div class="alert alert-info mb-3">
+                                        <i class="bi-info-circle-fill me-2"></i>
+                                        Los grupos de investigación se editan directamente en el archivo JSON. Aquí puedes ver un resumen.
+                                    </div>
+                                    <div id="gruposList"></div>
+                                </div>
+                            </div>
+
+                            <!-- RESPALDO -->
+                            <div class="tab-pane fade" id="pane-backup" role="tabpanel" aria-labelledby="tab-backup">
+                                <div class="admin-section">
+                                    <h4>Respaldo y Restauración de Datos</h4>
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <div class="custom-block bg-white shadow-sm p-4">
+                                                <h5 class="mb-3">Descargar Respaldo</h5>
+                                                <p class="small text-muted">Descarga todos los datos en formato JSON</p>
+                                                <button class="btn custom-btn w-100" id="backupBtn">
+                                                    <i class="bi-download me-2"></i> Descargar JSON
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="custom-block bg-white shadow-sm p-4">
+                                                <h5 class="mb-3">Restaurar desde Respaldo</h5>
+                                                <p class="small text-muted">Carga datos de un respaldo anterior</p>
+                                                <input type="file" class="form-control form-control-sm mb-2" id="restoreFile" accept=".json">
+                                                <button class="btn custom-btn w-100" id="restoreBtn">
+                                                    <i class="bi-upload me-2"></i> Restaurar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-warning" role="alert">
+                                        <i class="bi-exclamation-triangle-fill me-2"></i>
+                                        <strong>Advertencia:</strong> Restaurar datos sobrescribirá la información actual. Se recomienda hacer un respaldo antes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer section-padding mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="copyright-text">Copyright © 2025 AEFN - Panel Administrativo</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/validators.js"></script>
+        <script src="js/admin.js"></script>
+    </body>
+</html>
