@@ -134,6 +134,9 @@
                         </div>
                     </div>
 
+                    <!-- Botón Agregar Profesor -->
+                    <div class="mb-4 text-center" id="addProfessorContainer"></div>
+
                     <!-- Grid de Profesores (se llenará dinámicamente) -->
                     <div class="row" id="profesores-grid">
                         <!-- Los profesores se cargarán aquí dinámicamente -->
@@ -220,11 +223,18 @@
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/permissions.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
         
         <!-- Script específico para profesores -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Inyectar botón de agregar
+                PermissionsManager.injectAddButton('profesores', '✚ Agregar Profesor', 'profesores-grid');
+            });
+        </script>
         <script src="js/profesores.js"></script>
     </body>
 </html>

@@ -91,10 +91,57 @@
     return (text || '').replace(/[&<>"']/g, m => map[m]);
   }
 
+  // ====== PANEL DE PERMISOS ======
+
+  /**
+   * Inicializa panel de permisos
+   */
+  function initPermissionsPanel() {
+    document.querySelectorAll('.permission-toggle').forEach(toggle => {
+      const zone = toggle.dataset.zone;
+      const hasPerms = window.PermissionsManager.hasPermission(zone);
+      toggle.checked = hasPerms;
+
+      toggle.addEventListener('change', function() {
+        if (this.checked) {
+          window.PermissionsManager.enablePermission(zone);
+        } else {
+          window.PermissionsManager.disablePermission(zone);
+        }
+        window.PermissionsManager.updateAllButtons();
+      });
+    });
+
+    // Botones de activar/desactivar todo
+    const enableAllBtn = document.getElementById('enableAllPerms');
+    const disableAllBtn = document.getElementById('disableAllPerms');
+
+    if (enableAllBtn) {
+      enableAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.permission-toggle').forEach(toggle => {
+          toggle.checked = true;
+          window.PermissionsManager.enablePermission(toggle.dataset.zone);
+        });
+        window.PermissionsManager.updateAllButtons();
+      });
+    }
+
+    if (disableAllBtn) {
+      disableAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.permission-toggle').forEach(toggle => {
+          toggle.checked = false;
+          window.PermissionsManager.disablePermission(toggle.dataset.zone);
+        });
+        window.PermissionsManager.updateAllButtons();
+      });
+    }
+  }
+
   /**
    * Cargar todos los datos
    */
   async function loadAllData() {
+    initPermissionsPanel();
     loadClubsList();
     loadProfesoresList();
     loadEventosList();

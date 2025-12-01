@@ -107,7 +107,84 @@
 
                     <!-- Panel Admin (oculto hasta autenticación) -->
                     <div id="adminPanel" style="display:none;">
-                        <h2 class="mb-4">Panel de Administración</h2>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h2 class="mb-3">Panel de Administración</h2>
+                                
+                                <!-- Panel de Permisos -->
+                                <div class="custom-block bg-light p-3 mb-4">
+                                    <h5 class="mb-3"><i class="bi-shield-lock me-2"></i>Permisos de Agregar Entradas</h5>
+                                    <p class="small text-muted mb-3">Activa/desactiva los botones de agregar en cada página</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-clubes" data-zone="clubes">
+                                                <label class="form-check-label" for="perm-clubes">
+                                                    Agregar Clubes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-eventos" data-zone="eventos">
+                                                <label class="form-check-label" for="perm-eventos">
+                                                    Agregar Eventos
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-profesores" data-zone="profesores">
+                                                <label class="form-check-label" for="perm-profesores">
+                                                    Agregar Profesores
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-grupos" data-zone="grupos">
+                                                <label class="form-check-label" for="perm-grupos">
+                                                    Agregar Grupos de Investigación
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-tesis" data-zone="tesis">
+                                                <label class="form-check-label" for="perm-tesis">
+                                                    Agregar Tesis
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input permission-toggle" type="checkbox" id="perm-papers" data-zone="papers">
+                                                <label class="form-check-label" for="perm-papers">
+                                                    Agregar Papers
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-3">
+                                    
+                                    <div class="btn-group gap-2">
+                                        <button class="btn btn-sm btn-outline-success" id="enableAllPerms">
+                                            <i class="bi-check-all me-1"></i> Activar Todo
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" id="disableAllPerms">
+                                            <i class="bi-x-circle me-1"></i> Desactivar Todo
+                                        </button>
+                                    </div>
+
+                                    <div class="alert alert-info mt-3 mb-0 small">
+                                        <i class="bi-info-circle me-2"></i>
+                                        <strong>Atajo de teclado:</strong> Presiona <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> para toggle rápido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
                             <li class="nav-item" role="presentation">

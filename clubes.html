@@ -90,6 +90,10 @@
 
             <section class="section-padding">
                 <div class="container">
+                    <!-- Botón Agregar Entrada -->
+                    <div class="mb-4 text-center" id="addClubContainer">
+                    </div>
+
                     <!-- Grid de clubes (se carga dinámicamente) -->
                     <div id="clubesList">
                         <p class="text-center text-muted">Cargando clubes...</p>
@@ -175,7 +179,14 @@
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/permissions.js"></script>
         <script src="js/clubes.js"></script>
         <script src="js/custom.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Inyectar botón de agregar
+                PermissionsManager.injectAddButton('clubes', '✚ Agregar Club', 'clubesList');
+            });
+        </script>
     </body>
 </html>
