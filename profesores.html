@@ -49,7 +49,6 @@
     
     <body>
         <main>
-            <!-- Navegación -->
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="index.html">
@@ -57,7 +56,11 @@
                         <span>AEFN</span>
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="d-lg-none ms-auto me-4">
+                        <!-- profile icon removed -->
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -70,7 +73,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="nosotros.html">Nosotros</a>
                             </li>
-    
+
                             <li class="nav-item">
                                 <a class="nav-link active" href="profesores.html">Profesores</a>
                             </li>
@@ -80,9 +83,9 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="directiva.html">Directiva AEFN</a>
+                                <a class="nav-link" href="investigacion.html">Investigación</a>
                             </li>
-    
+
                             <li class="nav-item">
                                 <a class="nav-link" href="calendario.html">Calendario</a>
                             </li>
@@ -91,14 +94,12 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="resourcesDropdown">
                                     <li><a class="dropdown-item" href="login.html">Material de Estudio</a></li>
-                                    <li><a class="dropdown-item" href="vinculacion.html">Vinculación</a></li>
+                                    <li><a class="dropdown-item" href="https://www.vinculacion-ecfn.com/" target="_blank" rel="noopener noreferrer">Vinculación</a></li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <div class="d-none d-lg-block">
-                            <a href="login.html" class="btn custom-btn custom-border-btn">Iniciar Sesión</a>
-                        </div>
+                        <!-- profile icon removed -->
                     </div>
                 </div>
             </nav>
@@ -156,9 +157,64 @@
             </div>
         </main>
 
-       <!-- Footer (igual que en nosotros.html) -->
+       <!-- Footer -->
         <footer class="site-footer section-padding">
-            <!-- ... contenido del footer ... -->
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-atom"></i>
+                            <span>AEFN</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Enlaces Rápidos</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#section_1" class="site-footer-link">Inicio</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_2" class="site-footer-link">Nosotros</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_5" class="site-footer-link">Calendario</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#material" class="site-footer-link">Recursos</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Contacto</h6>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:decanatoecfn@yachaytech.edu.ec" class="site-footer-link">
+                                decanatoecfn@yachaytech.edu.ec
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <h6 class="site-footer-title mb-3">Redes</h6>
+                        <ul class="social-icon">
+                            <li class="social-icon-item">
+                                <a href="https://www.instagram.com/aefn_yt/" class="social-icon-link bi-instagram" target="_blank" rel="noopener noreferrer"></a>
+                            </li>
+                        </ul>
+
+                        <p class="copyright-text mt-lg-4 mt-3">Copyright © 2025 AEFN - Asociación de Estudiantes de Física y Nanotecnología.
+                        <br><br>Todos los derechos reservados.</p>
+                    </div>
+
+                </div>
+            </div>
         </footer>
 
         <!-- JAVASCRIPT FILES -->

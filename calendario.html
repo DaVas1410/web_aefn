@@ -110,6 +110,10 @@
                         <span>AEFN</span>
                     </a>
 
+                    <div class="d-lg-none ms-auto me-4">
+                        <!-- profile icon removed -->
+                    </div>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -123,7 +127,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="nosotros.html">Nosotros</a>
                             </li>
-    
+
                             <li class="nav-item">
                                 <a class="nav-link" href="profesores.html">Profesores</a>
                             </li>
@@ -135,7 +139,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="investigacion.html">Investigación</a>
                             </li>
-    
+
                             <li class="nav-item">
                                 <a class="nav-link active" href="calendario.html">Calendario</a>
                             </li>
@@ -148,6 +152,8 @@
                                 </ul>
                             </li>
                         </ul>
+
+                        <!-- profile icon removed -->
                     </div>
                 </div>
             </nav>
@@ -326,7 +332,62 @@
         </div>
 
         <footer class="site-footer section-padding">
-            <!-- Footer content -->
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-atom"></i>
+                            <span>AEFN</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Enlaces Rápidos</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#section_1" class="site-footer-link">Inicio</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_2" class="site-footer-link">Nosotros</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_5" class="site-footer-link">Calendario</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#material" class="site-footer-link">Recursos</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Contacto</h6>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:decanatoecfn@yachaytech.edu.ec" class="site-footer-link">
+                                decanatoecfn@yachaytech.edu.ec
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <h6 class="site-footer-title mb-3">Redes</h6>
+                        <ul class="social-icon">
+                            <li class="social-icon-item">
+                                <a href="https://www.instagram.com/aefn_yt/" class="social-icon-link bi-instagram" target="_blank" rel="noopener noreferrer"></a>
+                            </li>
+                        </ul>
+
+                        <p class="copyright-text mt-lg-4 mt-3">Copyright © 2025 AEFN - Asociación de Estudiantes de Física y Nanotecnología.
+                        <br><br>Todos los derechos reservados.</p>
+                    </div>
+
+                </div>
+            </div>
         </footer>
 
         <!-- JAVASCRIPT FILES -->
@@ -336,12 +397,29 @@
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
         <script>
-            // Countdown Timer
-            function updateCountdown() {
-                const eventDate = new Date('2025-09-15T14:00:00'); // Replace with your event date
-                const now = new Date();
-                const diff = eventDate - now;
+            // Calendar + Events (modular: fetch from data/events.json)
+            let eventsData = [];
+            const today = new Date();
+            let displayedYear = today.getFullYear();
+            let displayedMonth = today.getMonth(); // 0-based
 
+            // Allow navigation up to +12 months from now
+            const maxNavDate = new Date(today.getFullYear(), today.getMonth() + 12, 1);
+
+            // Update countdown to next upcoming event from eventsData
+            function updateCountdown() {
+                if (!eventsData || eventsData.length === 0) return;
+
+                const now = new Date();
+                // find next event >= now
+                const upcoming = eventsData
+                    .map(e => ({ ...e, datetime: e.time ? new Date(e.date + 'T' + e.time) : new Date(e.date + 'T00:00:00') }))
+                    .filter(e => e.datetime >= now)
+                    .sort((a, b) => a.datetime - b.datetime)[0];
+
+                if (!upcoming) return;
+
+                const diff = upcoming.datetime - now;
                 if (diff > 0) {
                     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -352,19 +430,20 @@
                     document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
                     document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
                     document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+
+                    document.getElementById('next-event-title').textContent = upcoming.title;
+                    const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+                    const timeStr = upcoming.time ? ' - ' + upcoming.time : '';
+                    document.getElementById('next-event-date').textContent = upcoming.datetime.toLocaleDateString('es-ES', opts) + timeStr;
                 }
             }
 
             setInterval(updateCountdown, 1000);
-            updateCountdown();
 
-            // Calendar functionality
+            // Generate calendar for displayedMonth/displayedYear
             function generateCalendar() {
-                const now = new Date();
-                const currentMonth = now.getMonth();
-                const currentYear = now.getFullYear();
-                const firstDay = new Date(currentYear, currentMonth, 1);
-                const lastDay = new Date(currentYear, currentMonth + 1, 0);
+                const firstDay = new Date(displayedYear, displayedMonth, 1);
+                const lastDay = new Date(displayedYear, displayedMonth + 1, 0);
                 const daysInMonth = lastDay.getDate();
                 const startingDay = firstDay.getDay();
 
@@ -391,42 +470,45 @@
                 for (let i = 1; i <= daysInMonth; i++) {
                     const dayElement = document.createElement('div');
                     dayElement.className = 'calendar-day';
-                    if (i === 15) { // Example event day
-                        dayElement.classList.add('has-event');
-                    }
                     dayElement.textContent = i;
+
+                    // check if this day has events
+                    const dayStr = `${displayedYear}-${String(displayedMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                    const eventsOnDay = eventsData.filter(ev => ev.date === dayStr);
+                    if (eventsOnDay.length > 0) {
+                        dayElement.classList.add('has-event');
+                        dayElement.title = eventsOnDay.map(e => e.title).join('\n');
+                        dayElement.addEventListener('click', () => {
+                            filterEventsByDay(displayedYear, displayedMonth + 1, i);
+                        });
+                    }
+
                     calendarGrid.appendChild(dayElement);
                 }
+
+                // Update header label
+                const monthLabel = new Date(displayedYear, displayedMonth, 1).toLocaleString('es-ES', { month: 'long', year: 'numeric' });
+                document.getElementById('currentMonth').textContent = monthLabel.charAt(0).toUpperCase() + monthLabel.slice(1);
             }
 
-            // Initialize calendar
-            generateCalendar();
+            // Filter events for a specific day and render them
+            function filterEventsByDay(year, month, day) {
+                const monthStr = String(month).padStart(2, '0');
+                const dayStr = String(day).padStart(2, '0');
+                const dateStr = `${year}-${monthStr}-${dayStr}`;
+                renderEventsList(eventsData.filter(e => e.date === dateStr));
+            }
 
-            // Event listeners for month navigation
-            document.getElementById('prevMonth').addEventListener('click', () => {
-                // Implementation for previous month
-            });
-
-            document.getElementById('nextMonth').addEventListener('click', () => {
-                // Implementation for next month
-            });
-
-            // Example events data
-            const events = [
-                {
-                    title: 'Asamblea General AEFN',
-                    date: '2025-09-15',
-                    time: '14:00',
-                    category: 'academic',
-                    description: 'Primera asamblea general del semestre'
-                },
-                // Add more events here
-            ];
-
-            // Populate events list
-            function populateEvents() {
+            // Render a list of events (used by filters and month view)
+            function renderEventsList(list) {
                 const eventsList = document.getElementById('eventsList');
-                events.forEach(event => {
+                eventsList.innerHTML = '';
+                if (!list || list.length === 0) {
+                    eventsList.innerHTML = '<div class="col-12">No hay eventos para este periodo.</div>';
+                    return;
+                }
+
+                list.forEach(event => {
                     const eventCard = document.createElement('div');
                     eventCard.className = 'col-md-6 mb-4';
                     eventCard.innerHTML = `
@@ -437,8 +519,9 @@
                                 <p class="mb-0">
                                     <i class="bi-calendar me-2"></i>${event.date}
                                     <br>
-                                    <i class="bi-clock me-2"></i>${event.time}
+                                    <i class="bi-clock me-2"></i>${event.time || ''}
                                 </p>
+                                <p class="mt-2">${event.description || ''}</p>
                             </div>
                         </div>
                     `;
@@ -446,7 +529,70 @@
                 });
             }
 
-            populateEvents();
+            // Populate events for displayed month (default)
+            function populateEventsForDisplayedMonth() {
+                const month = displayedMonth + 1; // 1-based
+                const year = displayedYear;
+                const monthStr = String(month).padStart(2, '0');
+                const filtered = eventsData.filter(e => e.date.startsWith(`${year}-${monthStr}-`));
+                // sort by date
+                filtered.sort((a, b) => a.date.localeCompare(b.date) || (a.time || '').localeCompare(b.time || ''));
+                renderEventsList(filtered);
+            }
+
+            // Prev/Next month handlers with bounds (no further than +12 months)
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                // allow going back but not before Jan 1970 (reasonable); keep simple: decrement month
+                if (displayedMonth === 0) {
+                    displayedMonth = 11;
+                    displayedYear -= 1;
+                } else {
+                    displayedMonth -= 1;
+                }
+                generateCalendar();
+                populateEventsForDisplayedMonth();
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                const tryDate = new Date(displayedYear, displayedMonth + 1, 1);
+                if (tryDate > maxNavDate) return; // prevent navigating beyond +12 months
+
+                if (displayedMonth === 11) {
+                    displayedMonth = 0;
+                    displayedYear += 1;
+                } else {
+                    displayedMonth += 1;
+                }
+                generateCalendar();
+                populateEventsForDisplayedMonth();
+            });
+
+            // Fetch events from data/events.json and initialize
+            fetch('data/events.json')
+                .then(resp => resp.json())
+                .then(data => {
+                    eventsData = data.map(ev => ({
+                        title: ev.title,
+                        date: ev.date,
+                        time: ev.time || '',
+                        category: ev.category || '',
+                        description: ev.description || ''
+                    }));
+
+                    // initialize displayed month to current month
+                    displayedYear = today.getFullYear();
+                    displayedMonth = today.getMonth();
+
+                    generateCalendar();
+                    populateEventsForDisplayedMonth();
+                    updateCountdown();
+                })
+                .catch(err => {
+                    console.error('No se pudo cargar data/events.json', err);
+                    // fallback: leave calendar empty
+                    generateCalendar();
+                    renderEventsList([]);
+                });
         </script>
     </body>
 </html>
