@@ -58,7 +58,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="resourcesDropdown">
-                  <li><a class="dropdown-item" href="login.html">Material de Estudio</a></li>
+                  <li><a class="dropdown-item" href="https://drive.google.com/drive/folders/1qMnYS6zYltRx96gtm2YVGF_hamFiRC0d?usp=drive_link" target="_blank" rel="noopener noreferrer">Material de Estudio</a></li>
                   <li><a class="dropdown-item" href="https://www.vinculacion-ecfn.com/" target="_blank" rel="noopener noreferrer">Vinculación</a></li>
                 </ul>
               </li>
@@ -78,7 +78,35 @@
 
       <section class="section-padding">
         <div class="container">
-          <div id="groupsList"></div>
+          <ul class="nav nav-pills mb-4" id="researchTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-groups" data-bs-toggle="pill" data-bs-target="#pane-groups" type="button" role="tab" aria-controls="pane-groups" aria-selected="true">Grupos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-theses" data-bs-toggle="pill" data-bs-target="#pane-theses" type="button" role="tab" aria-controls="pane-theses" aria-selected="false">Tesis</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-papers" data-bs-toggle="pill" data-bs-target="#pane-papers" type="button" role="tab" aria-controls="pane-papers" aria-selected="false">Papers</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="researchPanes">
+            <div class="tab-pane fade show active" id="pane-groups" role="tabpanel" aria-labelledby="tab-groups">
+              <div id="groupsList"></div>
+            </div>
+
+            <div class="tab-pane fade" id="pane-theses" role="tabpanel" aria-labelledby="tab-theses">
+              <div id="thesesList">
+                <p class="text-muted">Cargando tesis...</p>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pane-papers" role="tabpanel" aria-labelledby="tab-papers">
+              <div id="papersList">
+                <p class="text-muted">Cargando papers...</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -146,6 +174,30 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/investigation.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', ()=> window.Investigation.renderListing('groupsList'));</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', ()=>{
+        // load groups immediately
+        window.Investigation.renderListing('groupsList');
+
+        // lazy-load theses and papers when their tab is shown
+        let thesesLoaded = false;
+        let papersLoaded = false;
+
+        const tabTheses = document.getElementById('tab-theses');
+        const tabPapers = document.getElementById('tab-papers');
+
+        if(tabTheses){
+          tabTheses.addEventListener('shown.bs.tab', function (e) {
+            if(!thesesLoaded){ window.Investigation.renderTheses('thesesList'); thesesLoaded = true; }
+          });
+        }
+
+        if(tabPapers){
+          tabPapers.addEventListener('shown.bs.tab', function (e) {
+            if(!papersLoaded){ window.Investigation.renderPapers('papersList'); papersLoaded = true; }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,10 +1,14 @@
 // Lightweight renderer for Investigación listing and group pages
 (function(){
-  async function fetchGroups(){
-    const res = await fetch('data/investigation-groups.json');
-    if(!res.ok) throw new Error('Failed to load groups');
+  async function fetchJSON(path){
+    const res = await fetch(path);
+    if(!res.ok) throw new Error('Failed to load ' + path);
     return await res.json();
   }
+
+  async function fetchGroups(){ return await fetchJSON('data/investigation-groups.json'); }
+  async function fetchTheses(){ return await fetchJSON('data/theses.json'); }
+  async function fetchPapers(){ return await fetchJSON('data/papers.json'); }
 
   function createCard(group){
     const col = document.createElement('div');
@@ -34,11 +38,62 @@
       const row = document.createElement('div');
       row.className = 'row';
       groups.forEach(g=> row.appendChild(createCard(g)));
+      container.innerHTML = '';
       container.appendChild(row);
     }catch(e){
       container.innerHTML = '<p class="text-danger">No se pudo cargar la lista de grupos.</p>';
       console.error(e);
     }
+  }
+
+  // Render theses list
+  async function renderTheses(containerId){
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    try{
+      const theses = await fetchTheses();
+      if(!theses || theses.length===0){ container.innerHTML = '<p class="text-muted">No hay tesis registradas.</p>'; return; }
+      const row = document.createElement('div'); row.className = 'row';
+      theses.forEach(t => {
+        const col = document.createElement('div'); col.className = 'col-lg-6 col-12 mb-4';
+        col.innerHTML = `
+          <div class="custom-block bg-white shadow-sm h-100 p-3">
+            <h5>${t.title}</h5>
+            <p class="small text-muted">Autor: ${t.author} — Año: ${t.year}</p>
+            <p>${t.abstract || ''}</p>
+            ${t.link ? `<p><a href="${t.link}" target="_blank" rel="noopener noreferrer">Ver documento</a></p>` : ''}
+          </div>
+        `;
+        row.appendChild(col);
+      });
+      container.innerHTML = '';
+      container.appendChild(row);
+    }catch(e){ container.innerHTML = '<p class="text-danger">No se pudo cargar las tesis.</p>'; console.error(e); }
+  }
+
+  // Render papers list (published & in-progress)
+  async function renderPapers(containerId){
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    try{
+      const papers = await fetchPapers();
+      if(!papers || papers.length===0){ container.innerHTML = '<p class="text-muted">No hay papers registrados.</p>'; return; }
+      const row = document.createElement('div'); row.className = 'row';
+      papers.forEach(p => {
+        const col = document.createElement('div'); col.className = 'col-lg-6 col-12 mb-4';
+        col.innerHTML = `
+          <div class="custom-block bg-white shadow-sm h-100 p-3">
+            <h5>${p.title}</h5>
+            <p class="small text-muted">Autores: ${p.authors.join(', ')} — Año: ${p.year} ${p.published? '- Publicado':''}</p>
+            <p>${p.abstract || ''}</p>
+            ${p.link ? `<p><a href="${p.link}" target="_blank" rel="noopener noreferrer">Leer</a></p>` : ''}
+          </div>
+        `;
+        row.appendChild(col);
+      });
+      container.innerHTML = '';
+      container.appendChild(row);
+    }catch(e){ container.innerHTML = '<p class="text-danger">No se pudo cargar los papers.</p>'; console.error(e); }
   }
 
   function renderGroupDetail(group, container){
@@ -84,6 +139,8 @@
   // Expose to global
   window.Investigation = {
     renderListing,
-    renderGroupFromQuery
+    renderGroupFromQuery,
+    renderTheses,
+    renderPapers
   };
 })();
