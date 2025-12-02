@@ -125,81 +125,69 @@
       },
       {
         "id": "foto-2",
-        "title": "Asistentes",
+        "title": "Patch",
         "image": "images/gallery/nanogal/2.png",
-        "description": "Miembros de AEFN en la asamblea"
+        "description": "¿Una fotografía rota o un dispositivo semiconductor? Esta imagen TEM captura la interfaz crítica entre Silicio y Óxido de Vanadio. La textura inferior revela la estructura cristalina del silicio, mientras que la capa oscura superior es óxido de vanadio, un semiconductor que permite el transporte óptimo de huecos hacia el contacto metálico. En el medio, una fina capa de óxido de silicio surge por la reactividad química entre ambos materiales. 🎨 Visión artística: Un paisaje de playa fragmentado con una costura en \"X\" que evoca una fotografía descosida. 🔬 Equipo: Microscopio Titan G2 60-300."
       },
       {
         "id": "foto-3",
-        "title": "Discusión",
+        "title": "Paisaje",
         "image": "images/gallery/nanogal/3.png",
-        "description": "Momento de discusión"
+        "description": "La belleza en los defectos. Observamos el contacto trasero de una célula solar de kesterita. Sobre la capa de molibdeno y seleniuro de molibdeno (MoSe), aparece un \"hole\" justo en la interfaz con la kesterita. Desde la física de semiconductores, este espacio representa un punto de recombinación de cargas y, por tanto, un defecto estructural del material. 🎨 Visión artística: Aprovechando el perfil de este agujero, la imagen se transforma en un paisaje natural. 🔬 Equipo: Microscopio Titan G2 60-300."
       },
       {
         "id": "foto-4",
-        "title": "Presentación del evento",
+        "title": "El gato esferulico",
         "image": "images/gallery/nanogal/4.png",
-        "description": "Presentación del evento"
+        "description": "El caos ordenado de la cristalización. Esta imagen captura la recristalización de un polímero PLA-PGA tras ser fundido a 120∘C y sometido a un tratamiento en frío. Las estructuras visibles son esferulitas: láminas altamente ordenadas que irradian tridimensionalmente desde un centro de nucleación. 🎨 Visión artística: Representada como un gato por la dualidad orden-caos. El \"ojo\" simboliza el inicio de la nucleación (orden), mientras que su ausencia muestra una estructura amorfa en formación. 🔬 Equipo: Microscopio de luz polarizada (100x - 400x)."
       },
       {
         "id": "foto-5",
-        "title": "Presentación del evento",
+        "title": "Samurai",
         "image": "images/gallery/nanogal/5.png",
-        "description": "Presentación del evento"
+        "description": "Resiliencia a escala nanométrica. Superficie rugosa de un hidrogel de alginato dopado con nanotubos de carbono y puntos cuánticos. La textura fue inducida por la contracción del material al secarse al aire durante dos días. Físicamente, muestra cómo el material mantiene una estructura rígida pese a la pérdida masiva de agua. 🎨 Visión artística: Las líneas de tensión simulan la silueta de un samurái moviendo su túnica, simbolizando la resiliencia del hidrogel. 🔬 Equipo: Microscopio de luz polarizada (200x)."
       },
       {
         "id": "foto-6",
-        "title": "Presentación del evento",
+        "title": "Destruccion",
         "image": "images/gallery/nanogal/6.png",
-        "description": "Presentación del evento"
+        "description": "Híbridos: Biología y Nanotecnología. Organismo híbrido formado por la cianobacteria Fischerella muscicola y nanopartículas de plata (AgNPs) sintetizadas vía química verde (extracto de carrasquilla). Se observan aglomeraciones metálicas sobre la membrana mucilaginosa de la bacteria, confirmadas mediante análisis EDS. 🔬 Equipo: SEM 'MIRA3 TESCAN' (11.2Kx)."
       },
       {
         "id": "foto-7",
-        "title": "Presentación del evento",
+        "title": "Prisnas de ataduras",
         "image": "images/gallery/nanogal/7.png",
-        "description": "Presentación del evento"
+        "description": "Geometría química. Cristales resultantes de la síntesis química de nanopartículas de plata (AgNPs). La morfología se logró mediante incubación a 70∘C durante 70 horas y reducción con Boro Hidruro de Sodio a 4∘C. 🔬 Equipo: TEM FEI-Tecnai G20 Twin-Spirit (80kV)."
       },
       {
         "id": "foto-8",
-        "title": "Presentación del evento",
+        "title": "Nano Bosque",
         "image": "images/gallery/nanogal/8.png",
-        "description": "Presentación del evento"
+        "description": "Crecimiento vertical. Bosque de nanotubos de carbono de múltiples paredes (MW-CNT) creciendo sobre acero con recubrimiento de níquel. Mediante CVD (Depósito Químico de Vapor), los nanotubos emergen sobre aglomeraciones catalíticas formadas tras un recocido térmico del sustrato. 🔬 Equipo: Microscopio electrónico SEM (Zoom 6700x)."
       },
       {
         "id": "foto-9",
-        "title": "Presentación del evento",
+        "title": "Imbabura Cuantico",
         "image": "images/gallery/nanogal/9.png",
-        "description": "Presentación del evento"
+        "description": "Topografía cuántica. Imagen AFM (Microscopía de Fuerza Atómica) de Puntos Cuánticos de Carbono (CQDs) sintetizados hidrotermalmente a partir de semillas de sandía. Estos nanomateriales presentan fluorescencia estable y biocompatibilidad. La imagen muestra la distribución homogénea de las partículas tras spin coating. 🎨 Visión artística: Un paisaje topográfico procesado para resaltar la morfología a nanoescala. 🔬 Equipo: AFM Park Systems NX7 (Modo No-Contact)."
       },
       {
         "id": "foto-10",
-        "title": "Presentación del evento",
+        "title": "Fireworks",
         "image": "images/gallery/nanogal/10.png",
-        "description": "Presentación del evento"
+        "description": "Esferas huecas explosivas. Bajo el lente del microscopio, estas estructuras de cianuro de ferrita de cobalto aparecen como esferas huecas similares a fuegos artificiales. Fueron sintetizadas mediante una ruta solvotermal asistida por polivinilpirrolidona (PVP). 🔬 Equipo: Microscopio Electrónico de Barrido JEOL."
       },
       {
         "id": "foto-11",
-        "title": "Presentación del evento",
+        "title": "Nanoflowers",
         "image": "images/gallery/nanogal/11.png",
-        "description": "Presentación del evento"
+        "description": "Sensores luminiscentes. Estas 'flores' son nanobarras fusionadas de tereftalato de europio, una estructura metalorgánica (MOF). Poseen una propiedad física clave: fluorescencia roja intensa bajo UV que se extingue (quenches) en presencia de metales pesados, actuando como sensores de contaminación en agua. 🔬 Equipo: Zeiss Merlin SEM (Modo In-lens)."
       },
       {
         "id": "foto-12",
-        "title": "Presentación del evento",
+        "title": "Celula K562",
         "image": "images/gallery/nanogal/12.png",
-        "description": "Presentación del evento"
-      },
-      {
-        "id": "foto-13",
-        "title": "Presentación del evento",
-        "image": "images/gallery/nanogal/13.png",
-        "description": "Presentación del evento"
-      },
-      {
-        "id": "foto-14",
-        "title": "Presentación del evento",
-        "image": "images/gallery/nanogal/14.png",
-        "description": "Presentación del evento"
+        "description": "Adhesión celular en el abismo. Micrografía SEM de una célula de leucemia mieloide crónica (K562) sobre un electrodo de grafito/TiO2. Aunque estas células no son adherentes por naturaleza, la imagen revela cómo utiliza dendritas (pies falsos) para aferrarse a la topografía rugosa del electrodo. 🎨 Visión artística: Una esfera biológica luchando por mantenerse en una superficie irregular y llena de cavidades. 🔬 Equipo: SEM (Muestra metalizada con oro)."
       }
     ]
   }
