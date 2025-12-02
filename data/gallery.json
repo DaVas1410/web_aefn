@@ -109,5 +109,98 @@
         "description": "Miembros en actividad social"
       }
     ]
+  },
+  {
+    "id": "nano-gallery",
+    "album": "Nano Gallery",
+    "category": "Arte",
+    "date": "2025-12-01",
+    "description": "Competencia de arte en nanotecnología!",
+    "photos": [
+      {
+        "id": "foto-1",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/1.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-2",
+        "title": "Asistentes",
+        "image": "images/gallery/nanogal/2.png",
+        "description": "Miembros de AEFN en la asamblea"
+      },
+      {
+        "id": "foto-3",
+        "title": "Discusión",
+        "image": "images/gallery/nanogal/3.png",
+        "description": "Momento de discusión"
+      },
+      {
+        "id": "foto-4",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/4.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-5",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/5.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-6",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/6.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-7",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/7.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-8",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/8.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-9",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/9.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-10",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/10.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-11",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/11.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-12",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/12.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-13",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/13.png",
+        "description": "Presentación del evento"
+      },
+      {
+        "id": "foto-14",
+        "title": "Presentación del evento",
+        "image": "images/gallery/nanogal/14.png",
+        "description": "Presentación del evento"
+      }
+    ]
   }
 ]
