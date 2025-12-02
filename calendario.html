@@ -522,9 +522,9 @@
                 if (!eventsData || eventsData.length === 0) return;
 
                 const now = new Date();
-                // find next event >= now
+                // find next event >= now using ISO format for accuracy
                 const upcoming = eventsData
-                    .map(e => ({ ...e, datetime: e.hora ? new Date(e.fecha + 'T' + e.hora) : new Date(e.fecha + 'T00:00:00') }))
+                    .map(e => ({ ...e, datetime: new Date(e.fechaISO) }))
                     .filter(e => e.datetime >= now)
                     .sort((a, b) => a.datetime - b.datetime)[0];
 
@@ -718,6 +718,7 @@
                             title: ev.titulo,
                             fecha: fechaParte,
                             hora: horaParte,
+                            fechaISO: fecha,  // Guardar el ISO completo para la cuenta regresiva
                             tipo: ev.tipo || 'otro',
                             ubicacion: ev.ubicacion || '',
                             description: ev.descripcion || '',

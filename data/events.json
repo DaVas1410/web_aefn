@@ -288,5 +288,35 @@
     "tipo": "reunion",
     "estado": "finalizado",
     "link": ""
+  },
+  {
+    "id": "evento-2025-12-02",
+    "titulo": "Casa Abierta de Física",
+    "descripcion": "Jornada de puertas abiertas de la carrera de Física. Visita guiada y actividades interactivas.",
+    "fecha": "2025-12-02T09:00:00",
+    "ubicacion": "ECFN - Yachay Tech",
+    "tipo": "otro",
+    "estado": "proximo",
+    "link": ""
+  },
+  {
+    "id": "evento-2026-01-08",
+    "titulo": "Simposio de Física Teórica - Día 1",
+    "descripcion": "Primer día del Simposio Nacional de Física Teórica 2026. Presentación de investigaciones y charlas magistrales.",
+    "fecha": "2026-01-08T09:00:00",
+    "ubicacion": "ECFN - Yachay Tech",
+    "tipo": "seminario",
+    "estado": "proximo",
+    "link": ""
+  },
+  {
+    "id": "evento-2026-01-09",
+    "titulo": "Simposio de Física Teórica - Día 2",
+    "descripcion": "Segundo día del Simposio Nacional de Física Teórica 2026. Continuación de presentaciones y sesión de clausura.",
+    "fecha": "2026-01-09T09:00:00",
+    "ubicacion": "ECFN - Yachay Tech",
+    "tipo": "seminario",
+    "estado": "proximo",
+    "link": ""
   }
 ]
