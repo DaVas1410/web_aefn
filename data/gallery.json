@@ -1,116 +1,5 @@
 [
   {
-    "id": "asamblea-2025",
-    "album": "Asamblea General 2025",
-    "category": "Asambleas",
-    "date": "2025-02-15",
-    "description": "Asamblea General de la AEFN",
-    "photos": [
-      {
-        "id": "foto-1",
-        "title": "Presentación de directiva",
-        "image": "images/gallery/asamblea-1.jpg",
-        "description": "Presentación de la nueva directiva"
-      },
-      {
-        "id": "foto-2",
-        "title": "Asistentes",
-        "image": "images/gallery/asamblea-2.jpg",
-        "description": "Miembros de AEFN en la asamblea"
-      },
-      {
-        "id": "foto-3",
-        "title": "Discusión",
-        "image": "images/gallery/asamblea-3.jpg",
-        "description": "Momento de discusión"
-      }
-    ]
-  },
-  {
-    "id": "conferencia-fisica",
-    "album": "Conferencia de Física",
-    "category": "Conferencias",
-    "date": "2025-01-20",
-    "description": "Conferencia sobre Física Moderna",
-    "photos": [
-      {
-        "id": "foto-4",
-        "title": "Conferencista",
-        "image": "images/gallery/conferencia-1.jpg",
-        "description": "Dr. Conferencista presentando"
-      },
-      {
-        "id": "foto-5",
-        "title": "Audiencia",
-        "image": "images/gallery/conferencia-2.jpg",
-        "description": "Estudiantes escuchando la conferencia"
-      }
-    ]
-  },
-  {
-    "id": "evento-clubes",
-    "album": "Evento de Clubes",
-    "category": "Clubes",
-    "date": "2024-12-10",
-    "description": "Evento de presentación de clubes",
-    "photos": [
-      {
-        "id": "foto-6",
-        "title": "Stand Club Astronomía",
-        "image": "images/gallery/clubes-1.jpg",
-        "description": "Stand del Club de Astronomía"
-      },
-      {
-        "id": "foto-7",
-        "title": "Stand Club Programación",
-        "image": "images/gallery/clubes-2.jpg",
-        "description": "Stand del Club de Programación"
-      },
-      {
-        "id": "foto-8",
-        "title": "Participantes",
-        "image": "images/gallery/clubes-3.jpg",
-        "description": "Estudiantes en el evento"
-      }
-    ]
-  },
-  {
-    "id": "taller-laboratorio",
-    "album": "Taller de Laboratorio",
-    "category": "Talleres",
-    "date": "2024-11-05",
-    "description": "Taller práctico en el laboratorio",
-    "photos": [
-      {
-        "id": "foto-9",
-        "title": "Laboratorio 1",
-        "image": "images/gallery/laboratorio-1.jpg",
-        "description": "Estudiantes en el laboratorio"
-      },
-      {
-        "id": "foto-10",
-        "title": "Experimento",
-        "image": "images/gallery/laboratorio-2.jpg",
-        "description": "Realizando experimento"
-      }
-    ]
-  },
-  {
-    "id": "actividad-social",
-    "album": "Actividad Social",
-    "category": "Actividades Sociales",
-    "date": "2024-10-28",
-    "description": "Integración y esparcimiento de miembros",
-    "photos": [
-      {
-        "id": "foto-11",
-        "title": "Reunión social",
-        "image": "images/gallery/social-1.jpg",
-        "description": "Miembros en actividad social"
-      }
-    ]
-  },
-  {
     "id": "nano-gallery",
     "album": "Nano Gallery",
     "category": "Arte",
@@ -127,31 +16,31 @@
         "id": "foto-2",
         "title": "Patch",
         "image": "images/gallery/nanogal/2.png",
-        "description": "¿Una fotografía rota o un dispositivo semiconductor? Esta imagen TEM captura la interfaz crítica entre Silicio y Óxido de Vanadio. La textura inferior revela la estructura cristalina del silicio, mientras que la capa oscura superior es óxido de vanadio, un semiconductor que permite el transporte óptimo de huecos hacia el contacto metálico. En el medio, una fina capa de óxido de silicio surge por la reactividad química entre ambos materiales. 🎨 Visión artística: Un paisaje de playa fragmentado con una costura en \"X\" que evoca una fotografía descosida. 🔬 Equipo: Microscopio Titan G2 60-300."
+        "description": " La imagen TEM corresponde al contecto Silicio/Oxido de Vanadio, el óxido de vanadio es un semiconductor que permite el transporte óptimo de huecos desde el semiconductor hasta el contacto metálico. El Silicio se encuentra en la parte inferior de la imagen, se puede apreciar su estructura cristalina, lo que le da una aspecto de textura a la imagen, la capa de óxido de vanadio fue despositada sobre el silicio, la parte más oscura de la imagen, justo en la interfaz Si/V2O5 corresponde a una capa de óxido de silicio, esta capa crece por la reactividad del oxigeno del óxido de vanadio y el silicio, finalmente en la parte superior de la imagen se encuentra la capa de Aluminio.  La imagen artística corresponde a un paisaje de playa en fragmentos como una fotografía rota, se ha añadido una costura en x para dar el efecto de descocido. EQUIPO: Microscopio Titan G2 60-300. FECHA: 03/2019"
       },
       {
         "id": "foto-3",
         "title": "Paisaje",
         "image": "images/gallery/nanogal/3.png",
-        "description": "La belleza en los defectos. Observamos el contacto trasero de una célula solar de kesterita. Sobre la capa de molibdeno y seleniuro de molibdeno (MoSe), aparece un \"hole\" justo en la interfaz con la kesterita. Desde la física de semiconductores, este espacio representa un punto de recombinación de cargas y, por tanto, un defecto estructural del material. 🎨 Visión artística: Aprovechando el perfil de este agujero, la imagen se transforma en un paisaje natural. 🔬 Equipo: Microscopio Titan G2 60-300."
+        "description": " La imagen corresponde a microscopia TEM del contacto trasero de una célula solar de kesterita. La capa más profunda es el contacto de Molibdeno, sobre el, se encuentra una capa de seleniuro de molibdeno, obtenida mediante VTD (Vapor Transport Deposition), la Kesterita se encuentra sobre esta capa. En el contacto entre kesterita y MoSe se visualiza un ´hole´, este espacio es un punto de recombinación de cargas y por lo tanto de defectos del material. La imagen artística es un paisaje logrado a partir del perfil del agujero. EQUIPO: Microscopio Titan G2 60-300. FECHA de obtención: 11-2021. Lugar: Quito, Ecuador"
       },
       {
         "id": "foto-4",
         "title": "El gato esferulico",
         "image": "images/gallery/nanogal/4.png",
-        "description": "El caos ordenado de la cristalización. Esta imagen captura la recristalización de un polímero PLA-PGA tras ser fundido a 120∘C y sometido a un tratamiento en frío. Las estructuras visibles son esferulitas: láminas altamente ordenadas que irradian tridimensionalmente desde un centro de nucleación. 🎨 Visión artística: Representada como un gato por la dualidad orden-caos. El \"ojo\" simboliza el inicio de la nucleación (orden), mientras que su ausencia muestra una estructura amorfa en formación. 🔬 Equipo: Microscopio de luz polarizada (100x - 400x)."
+        "description": "La fotografía se tomó como parte de una práctica de laboratorio de la asignatura de Nanoestructura Moleculares impartida por Gema Gonzales, PhD. Se llevó al polímero de PLA-PGA hasta su temperatura de fusión, aproximadamente 120°C y se lo expuso a un tratamiento frío, en el cual el polímero pudo recristalizarse. Al recristalizarse, se forman unas estructuras llamadas esferulitas, las cuales consisten en láminas altamente ordenadas que irradian desde un centro, creando una estructura tridimensional densa y con una forma ramificada. Se decidió representar este fenómeno en un gato gracias a que tanto las esferulitas como los gatos son conocidos por su dualidad: elegantes y ordenados, pero impredecibles y caóticos. El único ojo simboliza el inicio de una esferulita, en la nucleación y por eso, junto a él se encuentra una estructura más ordenada, mientras que la ausencia de este se aprecia como una estructura más desordenada, aunque en proceso de formación. Equipo utilizado (cámara/instrumento y parámetros relevantes) Se utilizó un microscopio de luz polarizada, y las diferentes fotografías se realizaron tanto con el polarizador, como sin este a distinto aumento, de 100x, 200x y 400x. Año y lugar de captura 2025, Urcuquí"
       },
       {
         "id": "foto-5",
-        "title": "Samurai",
+        "title": "La Grieta del Samurai",
         "image": "images/gallery/nanogal/5.png",
-        "description": "Resiliencia a escala nanométrica. Superficie rugosa de un hidrogel de alginato dopado con nanotubos de carbono y puntos cuánticos. La textura fue inducida por la contracción del material al secarse al aire durante dos días. Físicamente, muestra cómo el material mantiene una estructura rígida pese a la pérdida masiva de agua. 🎨 Visión artística: Las líneas de tensión simulan la silueta de un samurái moviendo su túnica, simbolizando la resiliencia del hidrogel. 🔬 Equipo: Microscopio de luz polarizada (200x)."
+        "description": "La fotografía se tomó como parte del proyecto final en la asignatura de Nanoestructura Moleculares impartida por Gema Gonzales, PhD. La imagen presenta la superficie rugosa de un hidrogel de alginato, dopado con nanotubos de carbono y puntos cuánticos de carbono esperando mejorar sus propiedades. El hidrogel se sometió a secado al aire por dos días después de ser sintetizado, y debido a la posición que este adoptó, se formó una rugosidad superficial inducida por contracción. El título de la obra se atribuye a que la forma de las líneas de tensión simula la silueta de un samurái moviendo su túnica mientras corta la superficie con su espada. Se tomó la forma del samurái porque simboliza la resiliencia del hidrogel, el cual mantiene una estructura rígida aún después de ser arrebato la mayoría de su contenido (agua). Equipo utilizado Se utilizó un microscopio de luz polarizada con un aumento final de 200x. Año y lugar de captura 2025, Urcuquí, Ecuador"
       },
       {
         "id": "foto-6",
-        "title": "Destruccion",
+        "title": "El Camino entre la Creación y Destruccion",
         "image": "images/gallery/nanogal/6.png",
-        "description": "Híbridos: Biología y Nanotecnología. Organismo híbrido formado por la cianobacteria Fischerella muscicola y nanopartículas de plata (AgNPs) sintetizadas vía química verde (extracto de carrasquilla). Se observan aglomeraciones metálicas sobre la membrana mucilaginosa de la bacteria, confirmadas mediante análisis EDS. 🔬 Equipo: SEM 'MIRA3 TESCAN' (11.2Kx)."
+        "description": "Micrografía obtenida mediante Microscopía Electrónica de Barrido (SEM) de un organismo híbrido formado por la cianobacteria Fischerella muscicola y nanopartículas de plata (AgNPs), sintetizadas mediante química verde utilizando extracto del fruto de carrasquilla (Berberis hallii). Se observa la morfología esférica rugosa típica de una cianobacteria procariota, y se identifica la membrana mucilaginosa que permite formar colonias. El tamaño medido tiene10.5um de ancho y 12um de largo por cada célula, además, se observa pequeñas aglomeraciones que contrastan en luz con el resto de la fotografía, estas aglomeraciones fueron estudiadas mediante EDS, dando cómo resultado presencia de metales junto con otros materiales orgánicos. Las cianobacterias fueron cultivadas con control de fotoperíodo, temperatura, humedad y pH en el medio de cultivo BG11. Las AgNPs fueron sintetizadas utilizando nitrato de plata (AgNO3) cómo precursor, y un extracto de carrasquilla con pH modificado a 10.5, cómo agente reductor."
       },
       {
         "id": "foto-7",
@@ -163,7 +52,7 @@
         "id": "foto-8",
         "title": "Nano Bosque",
         "image": "images/gallery/nanogal/8.png",
-        "description": "Crecimiento vertical. Bosque de nanotubos de carbono de múltiples paredes (MW-CNT) creciendo sobre acero con recubrimiento de níquel. Mediante CVD (Depósito Químico de Vapor), los nanotubos emergen sobre aglomeraciones catalíticas formadas tras un recocido térmico del sustrato. 🔬 Equipo: Microscopio electrónico SEM (Zoom 6700x)."
+        "description": "Esta micrografía electrónica de barrido (SEM) muestra la formación de nanotubos de carbono con múltiples paredes (MW-CNT) creciendo sobre un sustrato de acero recubierto con una fina capa de níquel pulverizado. Esta imagen fue tomada como parte del proyecto de crecimiento de nanotubos de carbono sobre capas metálicas donde usando acero comercial se le añadió una capa de níquel por el método sputtering, que luego de un proceso de recocido se forman regiones catalíticas para el crecimiento de nanotubos de carbono, añadidos por la pirólisis de un gas en el equipo CVD. La fotografía fue tomada como parte de los análisis de las muestras, donde se puede apreciar que en la matriz del sustrato se formaron aglomeraciones y justo sobre ellas se da el crecimiento de los tubos en el orden nanométrico, en el contexto de una visita técnica para el uso de un microscopio electrónico en Quito. Equipo utilizado: Microscopio electrónico SEM, detector SE, zoom 6700x, voltaje 15 kV, distancia de trabajo 7.2 mm. Año y lugar de captura: 2025, Quito"
       },
       {
         "id": "foto-9",
@@ -175,19 +64,19 @@
         "id": "foto-10",
         "title": "Fireworks",
         "image": "images/gallery/nanogal/10.png",
-        "description": "Esferas huecas explosivas. Bajo el lente del microscopio, estas estructuras de cianuro de ferrita de cobalto aparecen como esferas huecas similares a fuegos artificiales. Fueron sintetizadas mediante una ruta solvotermal asistida por polivinilpirrolidona (PVP). 🔬 Equipo: Microscopio Electrónico de Barrido JEOL."
+        "description": "Cobalt ferrite cyanide hollow spheres synthesized via a poly(vinylpyrrolidone) assisted solvothermal route. Equipo utilizado (cámara/instrumento y parámetros relevantes): Microscopio Electrónico de Barrido JEOL. Año y lugar de captura: 2015 – Instituto Venezolano de Investigaciones Científicas IVIC"
       },
       {
         "id": "foto-11",
-        "title": "Nanoflowers",
+        "title": "Nanoflores",
         "image": "images/gallery/nanogal/11.png",
-        "description": "Sensores luminiscentes. Estas 'flores' son nanobarras fusionadas de tereftalato de europio, una estructura metalorgánica (MOF). Poseen una propiedad física clave: fluorescencia roja intensa bajo UV que se extingue (quenches) en presencia de metales pesados, actuando como sensores de contaminación en agua. 🔬 Equipo: Zeiss Merlin SEM (Modo In-lens)."
+        "description": "Descripción científica (100–200 palabras): contexto, método, fenómeno representado: La fotografía muestra nanoflores de tereftalato de europio, que son nanobarras fusionadas de este material. Estas partículas se obtuvieron mezclando soluciones acuosas de tereftalato de sodio y nitrato de europio bajo ultrasonido (60 W, 40 kHz), seguido de centrifugación y enjuague con agua. Una gota de la solución de suspensión de nanopartículas de tereftalato se depositó sobre una oblea de silicio monocristalino y se secó. El tereftalato de europio pertenece a la clase de estructuras metalorgánicas (MOF). Este compuesto brilla de color rojo intenso bajo luz ultravioleta. La adición de soluciones de sales de metales pesados ​​extingue la luminiscencia. Debido a la alta porosidad del material y a la capacidad de los iones de metales pesados ​​(como el cobre) para extinguir la luminiscencia del tereftalato de europio, los materiales resultantes pueden utilizarse para detectar bajas concentraciones de metales pesados ​​tóxicos en agua. Equipo utilizado (cámara/instrumento y parámetros relevantes): Zeiss Merlin microscopio electrónico SEM (Zeiss, Jena, Alemania), 20 kV, modo “In-lens” (electrones retrodispersados). Año y lugar de captura: 2022, San Peterburgo, Rusia"
       },
       {
         "id": "foto-12",
-        "title": "Celula K562",
+        "title": "La Celula K562 de cáncer aferrada al abismo",
         "image": "images/gallery/nanogal/12.png",
-        "description": "Adhesión celular en el abismo. Micrografía SEM de una célula de leucemia mieloide crónica (K562) sobre un electrodo de grafito/TiO2. Aunque estas células no son adherentes por naturaleza, la imagen revela cómo utiliza dendritas (pies falsos) para aferrarse a la topografía rugosa del electrodo. 🎨 Visión artística: Una esfera biológica luchando por mantenerse en una superficie irregular y llena de cavidades. 🔬 Equipo: SEM (Muestra metalizada con oro)."
+        "description": "La imagen corresponde a una célula de leucemia mieloide crónica humana observada mediante microscopía electrónica de barrido (SEM), técnica que utiliza un haz de electrones para generar imágenes de alta resolución sobre la superficie celular. El contexto del estudio se centra en caracterizar un electrodo Grafito/grafeno/TiO2- modificado con célula K562, adheridas al electrodo. El método SEM permite visualizar detalles topográficos con gran profundidad de campo, revelando la geometría redonda de la célula. Además, se visualiza la adherencia celular al electrodo por medio de dendritas o pies falsos temporales de la membrana y cierta migración celular. La muestra fue fijada químicamente, con Glutaraldehído, deshidratado con alcohol de (50-100) % y un secado de punto critico para observarla en el SEM se realizó un metalizado superficial con oro, con el fin de generar una superficie que fuera conductora. En la imagen representada se aprecia una superficie irregular altamente rugoso, con una textura irregular compuesta de fragmentos, con zonas macro facturas o cavidades con estructuras laminares, la morfología de la célula es esféricas con prolongaciones celulares o dendrita indicando interacción con la superficie (adhesión parcial). Estas características de adherencia de las células hacia electrodo de TiO2- modificado de las células k 562 de células que no sonadherentes por naturaleza"
       }
     ]
   }
