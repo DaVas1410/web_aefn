@@ -185,9 +185,9 @@ z<!doctype html>
     <script>
       document.addEventListener('DOMContentLoaded', ()=>{
         // Inyectar botones de agregar
-        PermissionsManager.injectAddButton('grupos', '✚ Agregar Grupo', 'groupsList');
-        PermissionsManager.injectAddButton('tesis', '✚ Agregar Tesis', 'thesesList');
-        PermissionsManager.injectAddButton('papers', '✚ Agregar Paper', 'papersList');
+        PermissionsManager.injectAddButton('grupos', '✚ Agregar Grupo', 'addGroupContainer');
+        PermissionsManager.injectAddButton('tesis', '✚ Agregar Tesis', 'addThesisContainer');
+        PermissionsManager.injectAddButton('papers', '✚ Agregar Paper', 'addPapersContainer');
 
         // load groups immediately
         window.Investigation.renderListing('groupsList');
