@@ -1,0 +1,113 @@
+[
+  {
+    "id": "asamblea-2025",
+    "album": "Asamblea General 2025",
+    "category": "Asambleas",
+    "date": "2025-02-15",
+    "description": "Asamblea General de la AEFN",
+    "photos": [
+      {
+        "id": "foto-1",
+        "title": "Presentación de directiva",
+        "image": "images/gallery/asamblea-1.jpg",
+        "description": "Presentación de la nueva directiva"
+      },
+      {
+        "id": "foto-2",
+        "title": "Asistentes",
+        "image": "images/gallery/asamblea-2.jpg",
+        "description": "Miembros de AEFN en la asamblea"
+      },
+      {
+        "id": "foto-3",
+        "title": "Discusión",
+        "image": "images/gallery/asamblea-3.jpg",
+        "description": "Momento de discusión"
+      }
+    ]
+  },
+  {
+    "id": "conferencia-fisica",
+    "album": "Conferencia de Física",
+    "category": "Conferencias",
+    "date": "2025-01-20",
+    "description": "Conferencia sobre Física Moderna",
+    "photos": [
+      {
+        "id": "foto-4",
+        "title": "Conferencista",
+        "image": "images/gallery/conferencia-1.jpg",
+        "description": "Dr. Conferencista presentando"
+      },
+      {
+        "id": "foto-5",
+        "title": "Audiencia",
+        "image": "images/gallery/conferencia-2.jpg",
+        "description": "Estudiantes escuchando la conferencia"
+      }
+    ]
+  },
+  {
+    "id": "evento-clubes",
+    "album": "Evento de Clubes",
+    "category": "Clubes",
+    "date": "2024-12-10",
+    "description": "Evento de presentación de clubes",
+    "photos": [
+      {
+        "id": "foto-6",
+        "title": "Stand Club Astronomía",
+        "image": "images/gallery/clubes-1.jpg",
+        "description": "Stand del Club de Astronomía"
+      },
+      {
+        "id": "foto-7",
+        "title": "Stand Club Programación",
+        "image": "images/gallery/clubes-2.jpg",
+        "description": "Stand del Club de Programación"
+      },
+      {
+        "id": "foto-8",
+        "title": "Participantes",
+        "image": "images/gallery/clubes-3.jpg",
+        "description": "Estudiantes en el evento"
+      }
+    ]
+  },
+  {
+    "id": "taller-laboratorio",
+    "album": "Taller de Laboratorio",
+    "category": "Talleres",
+    "date": "2024-11-05",
+    "description": "Taller práctico en el laboratorio",
+    "photos": [
+      {
+        "id": "foto-9",
+        "title": "Laboratorio 1",
+        "image": "images/gallery/laboratorio-1.jpg",
+        "description": "Estudiantes en el laboratorio"
+      },
+      {
+        "id": "foto-10",
+        "title": "Experimento",
+        "image": "images/gallery/laboratorio-2.jpg",
+        "description": "Realizando experimento"
+      }
+    ]
+  },
+  {
+    "id": "actividad-social",
+    "album": "Actividad Social",
+    "category": "Actividades Sociales",
+    "date": "2024-10-28",
+    "description": "Integración y esparcimiento de miembros",
+    "photos": [
+      {
+        "id": "foto-11",
+        "title": "Reunión social",
+        "image": "images/gallery/social-1.jpg",
+        "description": "Miembros en actividad social"
+      }
+    ]
+  }
+]
