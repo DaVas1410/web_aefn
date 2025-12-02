@@ -34,6 +34,11 @@
                 border-radius: 10px;
                 background: var(--primary-color);
                 color: white;
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
             }
             .countdown-number {
                 font-size: 2.5rem;
@@ -45,27 +50,65 @@
                 text-transform: uppercase;
             }
             .event-card {
-                transition: transform 0.3s ease;
+                transition: all 0.3s ease;
+                border-left: 5px solid var(--primary-color);
+                position: relative;
+                overflow: hidden;
+            }
+            .event-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             .event-card:hover {
                 transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+                border-left-color: var(--secondary-color);
+            }
+            .event-card:hover::before {
+                opacity: 1;
             }
             .calendar-container {
                 background: white;
                 border-radius: 15px;
                 padding: 20px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                animation: slideInUp 0.6s ease-out;
+            }
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
             .calendar-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 20px;
+                padding-bottom: 15px;
+                border-bottom: 2px solid var(--primary-color);
+            }
+            .calendar-header h3 {
+                color: var(--primary-color);
+                font-weight: 700;
+                margin: 0;
+                text-transform: capitalize;
             }
             .calendar-grid {
                 display: grid;
                 grid-template-columns: repeat(7, 1fr);
-                gap: 5px;
+                gap: 8px;
             }
             .calendar-day {
                 aspect-ratio: 1;
@@ -73,16 +116,56 @@
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                border-radius: 50%;
+                border-radius: 10px;
                 transition: all 0.3s ease;
+                font-weight: 500;
+                position: relative;
+                background: #f8f9fa;
+                border: 2px solid transparent;
             }
-            .calendar-day:hover {
-                background-color: var(--primary-color);
-                color: white;
+            .calendar-day:hover:not(:empty) {
+                background-color: rgba(102, 126, 234, 0.2);
+                border-color: var(--primary-color);
+                transform: scale(1.08);
             }
             .calendar-day.has-event {
-                background-color: var(--primary-color);
+                background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
                 color: white;
+                font-weight: 700;
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+                animation: eventPulse 2s infinite;
+            }
+            @keyframes eventPulse {
+                0%, 100% {
+                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+                }
+                50% {
+                    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+                }
+            }
+            .calendar-day.has-event::after {
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: white;
+                border-radius: 50%;
+                bottom: 4px;
+                animation: bounce 2s infinite;
+            }
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
+            }
+            .calendar-day.fw-bold {
+                background: var(--primary-color);
+                color: white;
+                font-size: 0.85rem;
+                cursor: default;
+            }
+            .calendar-day:empty {
+                cursor: default;
+                background: transparent;
             }
             .event-tooltip {
                 position: absolute;
@@ -91,12 +174,26 @@
                 border-radius: 5px;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                 display: none;
+                z-index: 10;
+                font-size: 0.8rem;
             }
             .category-badge {
                 font-size: 0.8rem;
                 padding: 5px 10px;
                 border-radius: 15px;
                 margin-right: 5px;
+                display: inline-block;
+                animation: slideIn 0.4s ease-out;
+            }
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
         </style>
     </head>
@@ -427,7 +524,7 @@
                 const now = new Date();
                 // find next event >= now
                 const upcoming = eventsData
-                    .map(e => ({ ...e, datetime: e.time ? new Date(e.date + 'T' + e.time) : new Date(e.date + 'T00:00:00') }))
+                    .map(e => ({ ...e, datetime: e.hora ? new Date(e.fecha + 'T' + e.hora) : new Date(e.fecha + 'T00:00:00') }))
                     .filter(e => e.datetime >= now)
                     .sort((a, b) => a.datetime - b.datetime)[0];
 
@@ -447,7 +544,7 @@
 
                     document.getElementById('next-event-title').textContent = upcoming.title;
                     const opts = { year: 'numeric', month: 'long', day: 'numeric' };
-                    const timeStr = upcoming.time ? ' - ' + upcoming.time : '';
+                    const timeStr = upcoming.hora ? ' - ' + upcoming.hora : '';
                     document.getElementById('next-event-date').textContent = upcoming.datetime.toLocaleDateString('es-ES', opts) + timeStr;
                 }
             }
@@ -488,7 +585,7 @@
 
                     // check if this day has events
                     const dayStr = `${displayedYear}-${String(displayedMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
-                    const eventsOnDay = eventsData.filter(ev => ev.date === dayStr);
+                    const eventsOnDay = eventsData.filter(ev => ev.fecha === dayStr);
                     if (eventsOnDay.length > 0) {
                         dayElement.classList.add('has-event');
                         dayElement.title = eventsOnDay.map(e => e.title).join('\n');
@@ -510,7 +607,7 @@
                 const monthStr = String(month).padStart(2, '0');
                 const dayStr = String(day).padStart(2, '0');
                 const dateStr = `${year}-${monthStr}-${dayStr}`;
-                renderEventsList(eventsData.filter(e => e.date === dateStr));
+                renderEventsList(eventsData.filter(e => e.fecha === dateStr));
             }
 
             // Render a list of events (used by filters and month view)
@@ -518,24 +615,50 @@
                 const eventsList = document.getElementById('eventsList');
                 eventsList.innerHTML = '';
                 if (!list || list.length === 0) {
-                    eventsList.innerHTML = '<div class="col-12">No hay eventos para este periodo.</div>';
+                    eventsList.innerHTML = '<div class="col-12 text-center text-muted py-5"><i class="bi-calendar-x" style="font-size: 3rem; display: block; margin-bottom: 1rem;"></i>No hay eventos para este periodo.</div>';
                     return;
                 }
 
-                list.forEach(event => {
+                list.forEach((event, index) => {
                     const eventCard = document.createElement('div');
-                    eventCard.className = 'col-md-6 mb-4';
+                    eventCard.className = 'col-lg-6 col-12 mb-4';
+                    eventCard.style.animation = `slideIn 0.4s ease-out ${index * 0.1}s both`;
+                    
+                    // Mapear tipos a colores y iconos
+                    const tipoConfig = {
+                        'charla': { color: 'bg-info', icono: 'bi-chat-dots', nombre: 'Charla' },
+                        'seminario': { color: 'bg-primary', icono: 'bi-chat-left-text', nombre: 'Seminario' },
+                        'taller': { color: 'bg-success', icono: 'bi-tools', nombre: 'Taller' },
+                        'reunion': { color: 'bg-warning', icono: 'bi-people', nombre: 'Reunión' },
+                        'competencia': { color: 'bg-danger', icono: 'bi-trophy', nombre: 'Competencia' },
+                        'otro': { color: 'bg-secondary', icono: 'bi-calendar-event', nombre: 'Evento' }
+                    };
+                    
+                    const config = tipoConfig[event.tipo] || tipoConfig['otro'];
+                    
+                    // Formatear fecha
+                    const fechaParts = event.fecha.split('-');
+                    const fecha = new Date(event.fecha);
+                    const fechaFormato = fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                    
                     eventCard.innerHTML = `
-                        <div class="custom-block bg-white shadow-lg event-card">
+                        <div class="custom-block bg-white shadow-lg event-card h-100">
                             <div class="p-4">
-                                <span class="category-badge bg-primary text-white">${event.category}</span>
-                                <h5 class="mt-2">${event.title}</h5>
-                                <p class="mb-0">
-                                    <i class="bi-calendar me-2"></i>${event.date}
-                                    <br>
-                                    <i class="bi-clock me-2"></i>${event.time || ''}
-                                </p>
-                                <p class="mt-2">${event.description || ''}</p>
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <span class="category-badge ${config.color} text-white">
+                                        <i class="bi ${config.icono} me-1"></i>${config.nombre}
+                                    </span>
+                                    <span class="badge bg-light text-dark">${event.estado}</span>
+                                </div>
+                                <h5 class="mb-2">${event.title}</h5>
+                                <div class="small text-muted mb-3">
+                                    <p class="mb-1">
+                                        <i class="bi-calendar me-2"></i><strong>${fechaFormato}</strong>
+                                    </p>
+                                    ${event.hora ? `<p class="mb-1"><i class="bi-clock me-2"></i>${event.hora}</p>` : ''}
+                                    ${event.ubicacion ? `<p class="mb-1"><i class="bi-geo-alt me-2"></i>${event.ubicacion}</p>` : ''}
+                                </div>
+                                <p class="mt-3 mb-0">${event.description || ''}</p>
                             </div>
                         </div>
                     `;
@@ -548,9 +671,9 @@
                 const month = displayedMonth + 1; // 1-based
                 const year = displayedYear;
                 const monthStr = String(month).padStart(2, '0');
-                const filtered = eventsData.filter(e => e.date.startsWith(`${year}-${monthStr}-`));
+                const filtered = eventsData.filter(e => e.fecha.startsWith(`${year}-${monthStr}-`));
                 // sort by date
-                filtered.sort((a, b) => a.date.localeCompare(b.date) || (a.time || '').localeCompare(b.time || ''));
+                filtered.sort((a, b) => a.fecha.localeCompare(b.fecha) || (a.hora || '').localeCompare(b.hora || ''));
                 renderEventsList(filtered);
             }
 
@@ -585,13 +708,22 @@
             fetch('data/events.json')
                 .then(resp => resp.json())
                 .then(data => {
-                    eventsData = data.map(ev => ({
-                        title: ev.title,
-                        date: ev.date,
-                        time: ev.time || '',
-                        category: ev.category || '',
-                        description: ev.description || ''
-                    }));
+                    eventsData = data.map(ev => {
+                        const fecha = ev.fecha;  // formato ISO: 2025-09-02T10:00:00
+                        const fechaParte = fecha.split('T')[0];  // 2025-09-02
+                        const horaParte = fecha.split('T')[1]?.substring(0, 5) || '';  // 10:00
+                        
+                        return {
+                            id: ev.id,
+                            title: ev.titulo,
+                            fecha: fechaParte,
+                            hora: horaParte,
+                            tipo: ev.tipo || 'otro',
+                            ubicacion: ev.ubicacion || '',
+                            description: ev.descripcion || '',
+                            estado: ev.estado || 'proximo'
+                        };
+                    });
 
                     // initialize displayed month to current month
                     displayedYear = today.getFullYear();
