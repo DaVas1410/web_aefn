@@ -128,17 +128,16 @@
     const section = document.createElement('div');
     section.className = 'album-section w-100';
 
-    // Grid de fotos del álbum (solo primera foto)
+    // Grid de fotos del álbum (todas las fotos)
     const photosGrid = document.createElement('div');
     photosGrid.className = 'gallery-grid';
     photosGrid.style.gridColumn = '1 / -1';
 
-    // Solo mostrar la primera foto
-    if (album.photos.length > 0) {
-      const firstPhoto = album.photos[0];
-      const item = createGalleryItem(firstPhoto, album.photos, album.album);
+    // Mostrar todas las fotos del álbum
+    album.photos.forEach((photo, index) => {
+      const item = createGalleryItem(photo, album.photos, album.album, index);
       photosGrid.appendChild(item);
-    }
+    });
 
     section.appendChild(photosGrid);
 
@@ -148,7 +147,7 @@
   /**
    * Crear item de galería
    */
-  function createGalleryItem(photo, albumPhotos, albumName) {
+  function createGalleryItem(photo, albumPhotos, albumName, photoIndex) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
@@ -160,19 +159,16 @@
     overlay.className = 'gallery-item-overlay';
     overlay.innerHTML = '<i class="bi-zoom-in"></i>';
 
-    // Agregar título del álbum si está disponible
-    if (albumName) {
-      const albumTitle = document.createElement('div');
-      albumTitle.className = 'album-title';
-      albumTitle.textContent = albumName;
-      item.appendChild(albumTitle);
-    }
+    const title = document.createElement('div');
+    title.className = 'gallery-item-title';
+    title.textContent = photo.title;
 
     item.appendChild(img);
+    item.appendChild(title);
     item.appendChild(overlay);
 
     item.addEventListener('click', () => {
-      openLightbox(albumPhotos, 0);
+      openLightbox(albumPhotos, photoIndex);
     });
 
     return item;
