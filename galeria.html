@@ -103,6 +103,9 @@
                 position: relative;
                 max-width: 90%;
                 max-height: 90vh;
+                display: flex;
+                gap: 30px;
+                align-items: flex-start;
             }
             .lightbox-image {
                 max-width: 100%;
@@ -306,12 +309,22 @@
         <div id="lightbox" class="lightbox">
             <span class="lightbox-close" onclick="closeLightbox()">×</span>
             <div class="lightbox-content">
-                <img id="lightboxImage" class="lightbox-image" src="" alt="">
+                <div style="display: flex; gap: 30px; align-items: flex-start; width: 100%; max-width: 1200px;">
+                    <!-- Imagen -->
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <img id="lightboxImage" class="lightbox-image" src="" alt="">
+                    </div>
+                    
+                    <!-- Panel de Descripción -->
+                    <div style="flex: 0 0 300px; max-height: 85vh; overflow-y: auto; color: white;">
+                        <h4 id="lightboxTitle" style="margin-bottom: 15px;">Título</h4>
+                        <p id="lightboxDescription" style="margin-bottom: 20px; line-height: 1.6;">Descripción</p>
+                        <p id="lightboxCounter" style="color: #aaa; font-size: 0.9rem;">1/1</p>
+                    </div>
+                </div>
+                
                 <span class="lightbox-nav lightbox-prev" onclick="prevImage()">❮</span>
                 <span class="lightbox-nav lightbox-next" onclick="nextImage()">❯</span>
-                <div class="lightbox-info">
-                    <span id="lightboxCounter">1/1</span>
-                </div>
             </div>
         </div>
 

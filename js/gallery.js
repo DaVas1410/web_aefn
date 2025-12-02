@@ -128,23 +128,17 @@
     const section = document.createElement('div');
     section.className = 'album-section w-100';
 
-    // Título del álbum
-    const title = document.createElement('h5');
-    title.textContent = album.album;
-    title.style.marginTop = '30px';
-    title.style.marginBottom = '10px';
-
-    section.appendChild(title);
-
-    // Grid de fotos del álbum
+    // Grid de fotos del álbum (solo primera foto)
     const photosGrid = document.createElement('div');
     photosGrid.className = 'gallery-grid';
     photosGrid.style.gridColumn = '1 / -1';
 
-    album.photos.forEach(photo => {
-      const item = createGalleryItem(photo, album.photos);
+    // Solo mostrar la primera foto
+    if (album.photos.length > 0) {
+      const firstPhoto = album.photos[0];
+      const item = createGalleryItem(firstPhoto, album.photos, album.album);
       photosGrid.appendChild(item);
-    });
+    }
 
     section.appendChild(photosGrid);
 
@@ -154,7 +148,7 @@
   /**
    * Crear item de galería
    */
-  function createGalleryItem(photo, albumPhotos) {
+  function createGalleryItem(photo, albumPhotos, albumName) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
@@ -166,11 +160,19 @@
     overlay.className = 'gallery-item-overlay';
     overlay.innerHTML = '<i class="bi-zoom-in"></i>';
 
+    // Agregar título del álbum si está disponible
+    if (albumName) {
+      const albumTitle = document.createElement('div');
+      albumTitle.className = 'album-title';
+      albumTitle.textContent = albumName;
+      item.appendChild(albumTitle);
+    }
+
     item.appendChild(img);
     item.appendChild(overlay);
 
     item.addEventListener('click', () => {
-      openLightbox(albumPhotos, albumPhotos.indexOf(photo));
+      openLightbox(albumPhotos, 0);
     });
 
     return item;
@@ -202,6 +204,8 @@
     const photo = currentLightboxPhotos[currentPhotoIndex];
     document.getElementById('lightboxImage').src = photo.image;
     document.getElementById('lightboxImage').alt = photo.title;
+    document.getElementById('lightboxTitle').textContent = photo.title;
+    document.getElementById('lightboxDescription').textContent = photo.description || 'Sin descripción';
     document.getElementById('lightboxCounter').textContent = 
       `${currentPhotoIndex + 1}/${currentLightboxPhotos.length}`;
   }
