@@ -180,190 +180,183 @@
 
                                     <div class="alert alert-info mt-3 mb-0 small">
                                         <i class="bi-info-circle me-2"></i>
-                                        <strong>Atajo de teclado:</strong> Presiona <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> para toggle rápido
+                                        <strong>Atajo de teclado:</strong> Presiona <kbd>Alt</kbd> + <kbd>E</kbd> para toggle rápido
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="tab-clubes" data-bs-toggle="tab" data-bs-target="#pane-clubes" type="button" role="tab" aria-controls="pane-clubes" aria-selected="true">Clubes</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-profesores" data-bs-toggle="tab" data-bs-target="#pane-profesores" type="button" role="tab" aria-controls="pane-profesores" aria-selected="false">Profesores</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-eventos" data-bs-toggle="tab" data-bs-target="#pane-eventos" type="button" role="tab" aria-controls="pane-eventos" aria-selected="false">Eventos</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-grupos" data-bs-toggle="tab" data-bs-target="#pane-grupos" type="button" role="tab" aria-controls="pane-grupos" aria-selected="false">Grupos de Investigación</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-backup" data-bs-toggle="tab" data-bs-target="#pane-backup" type="button" role="tab" aria-controls="pane-backup" aria-selected="false">Respaldo de Datos</button>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content" id="adminTabContent">
-                            <!-- CLUBES -->
-                            <div class="tab-pane fade show active" id="pane-clubes" role="tabpanel" aria-labelledby="tab-clubes">
-                                <div class="admin-section">
-                                    <h4>Gestionar Clubes</h4>
-                                    <div class="form-section">
-                                        <h5>Agregar Nuevo Club</h5>
-                                        <form id="formClub">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="clubNombre" class="form-label">Nombre del Club</label>
-                                                    <input type="text" class="form-control" id="clubNombre" name="nombre" required>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="clubId" class="form-label">ID (sin espacios)</label>
-                                                    <input type="text" class="form-control" id="clubId" name="id" required>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="clubDescripcion" class="form-label">Descripción Corta</label>
-                                                <input type="text" class="form-control" id="clubDescripcion" name="descripcion" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="clubDescripcionLarga" class="form-label">Descripción Larga</label>
-                                                <textarea class="form-control" id="clubDescripcionLarga" name="descripcion_larga" rows="3" required></textarea>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="clubIcono" class="form-label">Icono (Bootstrap Icon)</label>
-                                                    <input type="text" class="form-control" id="clubIcono" name="icono" placeholder="bi-stars" required>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="clubEmail" class="form-label">Email de Contacto</label>
-                                                    <input type="email" class="form-control" id="clubEmail" name="contacto_email" required>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn custom-btn">Agregar Club</button>
-                                        </form>
-                                    </div>
-                                    <div id="clubesList"></div>
-                                </div>
-                            </div>
-
-                            <!-- PROFESORES -->
-                            <div class="tab-pane fade" id="pane-profesores" role="tabpanel" aria-labelledby="tab-profesores">
-                                <div class="admin-section">
-                                    <h4>Gestionar Profesores</h4>
-                                    <div class="alert alert-info mb-3">
-                                        <i class="bi-info-circle-fill me-2"></i>
-                                        Los profesores se editan directamente en el archivo JSON. Aquí puedes ver un resumen.
-                                    </div>
-                                    <div id="profesoresList"></div>
-                                </div>
-                            </div>
-
-                            <!-- EVENTOS -->
-                            <div class="tab-pane fade" id="pane-eventos" role="tabpanel" aria-labelledby="tab-eventos">
-                                <div class="admin-section">
-                                    <h4>Gestionar Eventos</h4>
-                                    <div class="form-section">
-                                        <h5>Agregar Nuevo Evento</h5>
-                                        <form id="formEvento">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="eventoTitulo" class="form-label">Título</label>
-                                                    <input type="text" class="form-control" id="eventoTitulo" name="titulo" required>
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="eventoFecha" class="form-label">Fecha y Hora</label>
-                                                    <input type="datetime-local" class="form-control" id="eventoFecha" name="fecha" required>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="eventoDescripcion" class="form-label">Descripción</label>
-                                                <textarea class="form-control" id="eventoDescripcion" name="descripcion" rows="2" required></textarea>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4 mb-3">
-                                                    <label for="eventoUbicacion" class="form-label">Ubicación</label>
-                                                    <input type="text" class="form-control" id="eventoUbicacion" name="ubicacion">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                    <label for="eventoTipo" class="form-label">Tipo</label>
-                                                    <select class="form-select" id="eventoTipo" name="tipo" required>
-                                                        <option value="">Seleccionar</option>
-                                                        <option value="taller">Taller</option>
-                                                        <option value="seminario">Seminario</option>
-                                                        <option value="charla">Charla</option>
-                                                        <option value="competencia">Competencia</option>
-                                                        <option value="reunion">Reunión</option>
-                                                        <option value="otro">Otro</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                    <label for="eventoEstado" class="form-label">Estado</label>
-                                                    <select class="form-select" id="eventoEstado" name="estado" required>
-                                                        <option value="proximo">Próximo</option>
-                                                        <option value="en-progreso">En Progreso</option>
-                                                        <option value="finalizado">Finalizado</option>
-                                                        <option value="cancelado">Cancelado</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn custom-btn">Agregar Evento</button>
-                                        </form>
-                                    </div>
-                                    <div id="eventosList"></div>
-                                </div>
-                            </div>
-
-                            <!-- GRUPOS -->
-                            <div class="tab-pane fade" id="pane-grupos" role="tabpanel" aria-labelledby="tab-grupos">
-                                <div class="admin-section">
-                                    <h4>Gestionar Grupos de Investigación</h4>
-                                    <div class="alert alert-info mb-3">
-                                        <i class="bi-info-circle-fill me-2"></i>
-                                        Los grupos de investigación se editan directamente en el archivo JSON. Aquí puedes ver un resumen.
-                                    </div>
-                                    <div id="gruposList"></div>
-                                </div>
-                            </div>
-
-                            <!-- RESPALDO -->
-                            <div class="tab-pane fade" id="pane-backup" role="tabpanel" aria-labelledby="tab-backup">
-                                <div class="admin-section">
-                                    <h4>Respaldo y Restauración de Datos</h4>
-                                    
-                                    <div class="row mb-4">
-                                        <div class="col-md-6">
-                                            <div class="custom-block bg-white shadow-sm p-4">
-                                                <h5 class="mb-3">Descargar Respaldo</h5>
-                                                <p class="small text-muted">Descarga todos los datos en formato JSON</p>
-                                                <button class="btn custom-btn w-100" id="backupBtn">
-                                                    <i class="bi-download me-2"></i> Descargar JSON
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="custom-block bg-white shadow-sm p-4">
-                                                <h5 class="mb-3">Restaurar desde Respaldo</h5>
-                                                <p class="small text-muted">Carga datos de un respaldo anterior</p>
-                                                <input type="file" class="form-control form-control-sm mb-2" id="restoreFile" accept=".json">
-                                                <button class="btn custom-btn w-100" id="restoreBtn">
-                                                    <i class="bi-upload me-2"></i> Restaurar
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="alert alert-warning" role="alert">
-                                        <i class="bi-exclamation-triangle-fill me-2"></i>
-                                        <strong>Advertencia:</strong> Restaurar datos sobrescribirá la información actual. Se recomienda hacer un respaldo antes.
-                                    </div>
-                                </div>
+                        <div class="custom-block bg-white shadow-sm p-4 mt-4">
+                            <h5 class="mb-4"><i class="bi-question-circle me-2"></i>¿Cómo agregar nuevas entradas?</h5>
+                            <p class="mb-3">Para agregar clubes, profesores, eventos o cualquier información, necesitas:</p>
+                            <ol class="mb-3">
+                                <li>Haz un botón "✚ Agregar" en las páginas</li>
+                                <li>Abre el tutorial de cómo hacer una Pull Request</li>
+                                <li>Edita el archivo JSON correspondiente con los datos</li>
+                                <li>Crea una Pull Request hacia el repositorio</li>
+                                <li>Los cambios se aprobarán y publicarán automáticamente</li>
+                            </ol>
+                            <div class="alert alert-info mb-0">
+                                <i class="bi-info-circle me-2"></i>
+                                <strong>Nota:</strong> Los botones "Agregar" se muestran/ocultan usando los controles arriba. Esto es solo para tu sesión.
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+
+        <!-- Modal Tutorial PR -->
+        <div class="modal fade" id="tutorialModal" tabindex="-1" aria-labelledby="tutorialTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tutorialTitle">
+                            <i class="bi-git me-2"></i>Cómo Agregar Nuevas Entradas
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="lead">Sigue estos pasos para agregar nuevas entradas al sitio:</p>
+                        
+                        <div class="accordion" id="tutorialAccordion">
+                            <!-- Paso 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#paso1">
+                                        1. Bifurcar (Fork) el Repositorio
+                                    </button>
+                                </h2>
+                                <div id="paso1" class="accordion-collapse collapse show" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <ol>
+                                            <li>Ve a <a href="https://github.com/DaVas1410/web_aefn" target="_blank">GitHub - web_aefn</a></li>
+                                            <li>Haz clic en el botón <strong>"Fork"</strong> (arriba a la derecha)</li>
+                                            <li>Se creará una copia del repositorio en tu cuenta</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paso 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paso2">
+                                        2. Editar el Archivo JSON
+                                    </button>
+                                </h2>
+                                <div id="paso2" class="accordion-collapse collapse" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <p><strong>Ubica el archivo a editar en tu fork:</strong></p>
+                                        <ul>
+                                            <li><code>data/clubes.json</code> → para agregar clubes</li>
+                                            <li><code>data/profesores.json</code> → para agregar profesores</li>
+                                            <li><code>data/events.json</code> → para agregar eventos</li>
+                                            <li><code>data/investigation-groups.json</code> → para grupos de investigación</li>
+                                            <li><code>data/theses.json</code> → para tesis</li>
+                                            <li><code>data/papers.json</code> → para papers</li>
+                                        </ul>
+                                        <p><strong>Haz clic en el lápiz</strong> <i class="bi-pencil"></i> para editar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paso 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paso3">
+                                        3. Agregar tu Entrada
+                                    </button>
+                                </h2>
+                                <div id="paso3" class="accordion-collapse collapse" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <p><strong>Ejemplo para agregar un club en <code>data/clubes.json</code>:</strong></p>
+                                        <pre><code class="bg-light p-2">{
+  "id": "tu-club",
+  "nombre": "Nombre del Club",
+  "descripcion": "Descripción corta",
+  "descripcion_larga": "Descripción más detallada...",
+  "icono": "bi-stars",
+  "contacto_email": "contacto@ejemplo.com"
+}</code></pre>
+                                        <p class="small text-muted mt-2">Copia el formato de otro club y edita los valores</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paso 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paso4">
+                                        4. Guardar Cambios
+                                    </button>
+                                </h2>
+                                <div id="paso4" class="accordion-collapse collapse" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <ol>
+                                            <li>Desplázate al final de la página</li>
+                                            <li>En <strong>"Commit changes"</strong>, escribe un mensaje descriptivo:
+                                                <br><code>feat: Agregar nuevo club "Mi Club"</code>
+                                            </li>
+                                            <li>Selecciona <strong>"Create a new branch"</strong></li>
+                                            <li>Haz clic en <strong>"Commit changes"</strong></li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paso 5 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paso5">
+                                        5. Crear una Pull Request (PR)
+                                    </button>
+                                </h2>
+                                <div id="paso5" class="accordion-collapse collapse" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <ol>
+                                            <li>Vuelve a tu repositorio fork</li>
+                                            <li>Verás un botón <strong>"Compare & pull request"</strong></li>
+                                            <li>Haz clic en él</li>
+                                            <li>Revisa que los cambios sean correctos</li>
+                                            <li>Haz clic en <strong>"Create pull request"</strong></li>
+                                        </ol>
+                                        <p class="small text-muted mt-2">Tu PR será revisada y aprobada ✅</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Paso 6 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paso6">
+                                        ✅ ¡Listo! Tu cambio está publicado
+                                    </button>
+                                </h2>
+                                <div id="paso6" class="accordion-collapse collapse" data-bs-parent="#tutorialAccordion">
+                                    <div class="accordion-body">
+                                        <p>Una vez que el administrador aprueba tu PR, los cambios se publican automáticamente en GitHub Pages.</p>
+                                        <p><strong>¡Tu nueva entrada aparecerá en el sitio web! 🎉</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4 mb-0">
+                            <i class="bi-info-circle me-2"></i>
+                            <strong>¿Necesitas ayuda?</strong> 
+                            <a href="https://docs.github.com/es/get-started/using-git" target="_blank">Aprende más sobre Git y GitHub</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <a href="https://github.com/DaVas1410/web_aefn" target="_blank" class="btn custom-btn">
+                            <i class="bi-github me-1"></i>Ir al Repositorio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer class="site-footer section-padding mt-5">
             <div class="container">
