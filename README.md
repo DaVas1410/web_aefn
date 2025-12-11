@@ -1,207 +1,223 @@
-# 🚀 AEFN - Web Sitio Asociación de Estudiantes
+# 🎓 AEFN - Sitio Web Oficial
 
-Sitio web modular para la Asociación de Estudiantes de Física y Nanotecnología (AEFN) de Yachay Tech.
+**Asociación de Estudiantes de Física y Nanotecnología - Yachay Tech**
 
-## 📋 Contenido Rápido
+Sitio web moderno y responsivo para la gestión de información académica, eventos, clubes estudiantiles e investigación.
 
-### ✅ **Implementado recientemente:**
+---
 
-1. **Sistema Modular de Clubes** 
-   - Clubes cargados dinámicamente desde JSON
-   - Fácil de agregar/editar en `data/clubes.json`
-   - Modal con detalles completos
+## 🚀 Inicio Rápido
 
-2. **Panel Administrativo** (`admin.html`)
-   - Contraseña: `admin2025` (cambiar en producción)
-   - Gestión de clubes, eventos, profesores, grupos
-   - Respaldo y restauración de datos
+### Abrir el Sitio Web
 
-3. **Sistema de Eventos**
-   - Eventos en `data/events.json`
-   - Renderización dinámica
-   - Filtros por estado
+1. Abrir `index.html` en cualquier navegador
+2. Navegar por las diferentes secciones
 
-4. **Validadores**
-   - Funciones reutilizables en `js/validators.js`
-   - Email, URL, números, fechas, etc.
-   - Validación de formularios completos
+### Acceder al Panel Administrativo
 
-## 📁 Estructura de Archivos
+1. Abrir `admin.html` en el navegador
+2. Ingresar contraseña: **`admin2025`**
+3. Gestionar clubes, eventos y contenido
 
+---
+
+## 📋 Características Principales
+
+### ✅ Sistema Modular con JSON
+- Todos los datos en archivos JSON editables
+- Sin necesidad de editar HTML
+- Actualización automática del contenido
+
+### ✅ Panel Administrativo
+- Gestión visual de clubes y eventos
+- Sistema de respaldo y restauración
+- Interfaz intuitiva y fácil de usar
+
+### ✅ Diseño Responsivo
+- Compatible con móviles, tablets y computadoras
+- Tema institucional personalizado
+- Navegación fluida y moderna
+
+---
+
+## 📁 Estructura del Proyecto
+
+### Páginas HTML
 ```
-web_aefn/
-├── index.html                 # Página principal
-├── admin.html                 # Panel administrativo ⭐ NUEVO
-├── clubes.html                # Clubes (ahora modular) ✏️ REFACTORIZADO
-├── profesores.html            # Profesores
-├── investigacion.html         # Grupos de investigación, tesis, papers
-├── group.html                 # Detalle de grupo
-├── nosotros.html              # Sobre nosotros
-├── calendario.html            # Calendario de eventos
-├── contact.html               # Contacto
-├── login.html                 # Login (recurso)
-├── directiva.html             # Directiva (página)
-├── topics-listing.html        # Listing genérico
-├── topics-detail.html         # Detalle genérico
-│
-├── data/
-│   ├── clubes.json            # ⭐ NUEVO - Clubes modular
-│   ├── events.json            # ✏️ MEJORADO - Eventos
-│   ├── profesores.json        # Profesores
-│   ├── investigation-groups.json # Grupos de investigación
-│   ├── papers.json            # Papers de investigación
-│   ├── theses.json            # Tesis
-│   └── mallas/                # Mallas curriculares
-│
-├── js/
-│   ├── admin.js               # ⭐ NUEVO - Lógica panel admin
-│   ├── clubes.js              # ⭐ NUEVO - Renderización clubes
-│   ├── eventos.js             # ⭐ NUEVO - Renderización eventos
-│   ├── validators.js          # ⭐ NUEVO - Validadores
-│   ├── profesores.js          # Profesores
-│   ├── investigation.js       # Investigación
-│   ├── custom.js              # Funciones personalizadas
-│   ├── jquery.min.js          # jQuery
-│   ├── bootstrap.bundle.min.js # Bootstrap
-│   ├── jquery.sticky.js       # Plugin sticky
-│   └── click-scroll.js        # Scroll smooth
-│
-├── css/
-│   ├── bootstrap.min.css      # Bootstrap
-│   ├── bootstrap-icons.css    # Iconos
-│   ├── templatemo-topic-listing.css
-│   ├── aefn-theme.css         # Tema AEFN
-│   ├── aefn-components.css    # Componentes
-│   ├── aefn-overrides.css     # Overrides
-│   └── aefn-color-override.css # Colores
-│
-├── images/                    # Imágenes
-├── fonts/                     # Fuentes
-├── welcome_screen/            # Imágenes de bienvenida
-├── mallas/                    # Mallas curriculares
-│
-├── ADMIN_GUIDE.md             # ⭐ NUEVO - Guía de administrador
-└── README.md                  # Este archivo
+index.html          → Página principal
+admin.html          → Panel administrativo
+clubes.html         → Clubes estudiantiles
+profesores.html     → Profesores de la escuela
+investigacion.html  → Grupos de investigación
+calendario.html     → Eventos y calendario
+galeria.html        → Galería de fotos
+nosotros.html       → Sobre la AEFN
+contact.html        → Información de contacto
 ```
 
-## 🎯 Cómo Usar
+### Datos (carpeta `data/`)
+```
+clubes.json                → Información de clubes
+events.json                → Eventos y actividades
+profesores.json            → Perfiles de profesores
+investigation-groups.json  → Grupos de investigación
+papers.json                → Publicaciones científicas
+theses.json                → Tesis de estudiantes
+gallery.json               → Fotos y álbumes
+```
 
-### Agregar un Nuevo Club
+### Scripts (carpeta `js/`)
+```
+clubes.js          → Renderización de clubes
+eventos.js         → Gestión de eventos
+profesores.js      → Perfiles de profesores
+investigation.js   → Página de investigación
+gallery.js         → Galería de fotos
+validators.js      → Validación de formularios
+custom.js          → Funciones generales
+```
 
-1. Ir a `admin.html`
-2. Ingresar contraseña: `admin2025`
-3. Tab "Clubes" → Llenar formulario
-4. Hacer clic en "Agregar Club"
-5. Los datos se actualizan en `data/clubes.json`
+### Estilos (carpeta `css/`)
+```
+aefn-theme.css     → Tema y colores institucionales
+aefn-components.css → Componentes personalizados
+bootstrap.min.css  → Framework Bootstrap
+```
 
-### Agregar un Nuevo Evento
+---
 
-1. En `admin.html` → Tab "Eventos"
-2. Llenar formulario con detalles
-3. Seleccionar tipo y estado
-4. Hacer clic en "Agregar Evento"
+## 👥 Cómo Usar el Panel Administrativo
 
-### Descargar Respaldo de Datos
+### 1. Agregar un Club
 
-1. En `admin.html` → Tab "Respaldo de Datos"
-2. Hacer clic en "Descargar JSON"
-3. Se descarga un archivo con todos los datos
+```
+1. Abrir admin.html
+2. Contraseña: admin2025
+3. Ir a pestaña "Clubes"
+4. Llenar formulario
+5. Clic en "Agregar Club"
+```
 
-### Restaurar desde Respaldo
+### 2. Agregar un Evento
 
-1. En `admin.html` → Tab "Respaldo de Datos"
-2. Seleccionar archivo JSON previamente descargado
-3. Hacer clic en "Restaurar"
+```
+1. Abrir admin.html
+2. Ir a pestaña "Eventos"
+3. Llenar formulario (título, fecha, ubicación)
+4. Seleccionar tipo y estado
+5. Clic en "Agregar Evento"
+```
 
-## 📊 Estructura de Datos JSON
+### 3. Hacer Respaldo de Datos
 
-### Clubes (`data/clubes.json`)
+```
+1. Abrir admin.html
+2. Ir a pestaña "Respaldo de Datos"
+3. Clic en "Descargar JSON"
+4. Se guarda archivo: aefn-backup-2025-12-10.json
+```
+
+---
+
+## 📊 Editar Datos Manualmente
+
+Si prefieres editar directamente los archivos JSON:
+
+### Clubes → `data/clubes.json`
 ```json
 {
-  "id": "astronomia",
-  "nombre": "Club de Astronomía",
+  "id": "nuevo-club",
+  "nombre": "Nombre del Club",
   "icono": "bi-stars",
-  "descripcion": "Descripción corta",
-  "descripcion_larga": "Descripción detallada...",
-  "directiva": [...],
-  "actividades": [...],
-  "contacto_email": "club@aefn.local"
+  "descripcion": "Descripción breve",
+  "contacto_email": "club@yachaytech.edu.ec"
 }
 ```
 
-### Eventos (`data/events.json`)
+### Eventos → `data/events.json`
 ```json
 {
   "id": "evento-1",
-  "titulo": "Charla: Nanotecnología",
-  "descripcion": "...",
-  "fecha": "2025-12-10T18:00:00",
-  "ubicacion": "Auditorio",
+  "titulo": "Nombre del Evento",
+  "fecha": "2025-12-20T18:00:00",
+  "ubicacion": "Salón",
   "tipo": "charla",
-  "estado": "proximo",
-  "link": ""
+  "estado": "proximo"
 }
 ```
 
-Ver `ADMIN_GUIDE.md` para estructura completa.
+> 📖 Ver `ADMIN_GUIDE.md` para detalles completos de todos los campos
 
-## 🔐 Seguridad
+---
 
-**Contraseña del admin:** `admin2025`
+## 🔒 Seguridad
 
-⚠️ **CAMBIAR EN PRODUCCIÓN:**
-- Editar `js/admin.js` línea 10
-- Usar contraseña fuerte
-- Implementar autenticación con JWT en el backend
+**Contraseña actual del panel:** `admin2025`
 
-## 🛠️ Requisitos para Producción
+### ⚠️ Importante para Producción
+```
+Cambiar contraseña en: js/admin.js (línea 10)
+Usar contraseña fuerte: Mínimo 12 caracteres
+Activar HTTPS en el servidor
+```
 
-- [ ] Cambiar contraseña de admin
-- [ ] Configurar HTTPS
-- [ ] Crear base de datos (MongoDB, PostgreSQL)
-- [ ] Desarrollar API backend
-- [ ] Implementar autenticación JWT
-- [ ] Testing completo
+---
 
-## 📱 Características Clave
+## ✅ Checklist para Producción
 
-✅ Responsivo (mobile, tablet, desktop)
-✅ Tema oscuro/claro posible
-✅ Sistema modular de datos JSON
-✅ Panel administrativo simple
-✅ Validadores de formularios
-✅ Respaldo/Restauración de datos
-✅ Iconos Bootstrap
-✅ SEO básico optimizado
+- [ ] Cambiar contraseña del panel administrativo
+- [ ] Configurar certificado HTTPS
+- [ ] Conectar con base de datos
+- [ ] Implementar API backend para persistencia
+- [ ] Probar en diferentes navegadores
 
-## 🚀 Próximas Mejoras
+---
 
-1. **Backend API** - Persistencia en BD
-2. **Autenticación mejorada** - JWT, 2FA
-3. **Roles de usuario** - Admin, Editor, Viewer
-4. **Historial de cambios** - Auditoría
-5. **Búsqueda avanzada** - Full-text search
-6. **Integración Calendario** - Google Calendar API
-7. **Formulario de contacto** - Email integration
-8. **Galería de fotos** - Events/Clubs photos
-9. **Sistema de comentarios** - Feedback
-10. **Analytics** - Google Analytics
+## 🌟 Características Técnicas
+
+✅ **Responsivo** → Funciona en móviles, tablets y computadoras
+✅ **Modular** → Datos separados en archivos JSON
+✅ **Fácil de usar** → Panel administrativo intuitivo
+✅ **Seguro** → Validación de formularios y sanitización
+✅ **Moderno** → Diseño profesional con Bootstrap 5
+✅ **Rápido** → Optimizado para carga rápida
+
+---
+
+## 🚀 Futuras Mejoras Planeadas
+
+🔹 Backend con API REST para persistencia real
+🔹 Sistema de autenticación robusto
+🔹 Historial de cambios y auditoría
+🔹 Búsqueda global en el sitio
+🔹 Integración con Google Calendar
+🔹 Formulario de contacto funcional
+
+---
+
+## 📖 Documentación Adicional
+
+- **`QUICK_START.md`** → Guía rápida de uso
+- **`ADMIN_GUIDE.md`** → Manual del panel administrativo
+- **`CONTRIBUTING.md`** → Cómo contribuir al proyecto
+- **`CHANGELOG.md`** → Historial de cambios
+
+---
 
 ## 📞 Contacto
 
-**Email:** decanatoecfn@yachaytech.edu.ec
-
-**Instagram:** [@aefn_yt](https://www.instagram.com/aefn_yt/)
-
-**Repositorio:** [DaVas1410/web_aefn](https://github.com/DaVas1410/web_aefn)
+📧 **Email:** decanatoecfn@yachaytech.edu.ec
+📸 **Instagram:** [@aefn_yt](https://www.instagram.com/aefn_yt/)
+👨‍💻 **Repositorio:** [github.com/DaVas1410/web_aefn](https://github.com/DaVas1410/web_aefn)
 
 ---
 
-## 📖 Documentación Completa
+<div align="center">
 
-Para guía detallada del panel administrativo, ver: `ADMIN_GUIDE.md`
+**AEFN - Asociación de Estudiantes de Física y Nanotecnología**
 
----
+*Yachay Tech - Universidad de Investigación de Tecnología Experimental*
 
-**Última actualización:** Diciembre 2025
-**Versión:** 2.1 (Sistema Modular)
+Versión 2.1 | Diciembre 2025
+
+</div>

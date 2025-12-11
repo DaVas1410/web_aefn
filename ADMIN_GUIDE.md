@@ -1,12 +1,15 @@
-# 📖 Documentación - Panel Administrativo AEFN
+# 📖 Manual del Panel Administrativo - AEFN
 
-## 🔐 Acceso al Panel Administrativo
+Documentación completa para administradores del sitio web.
 
-**URL:** `admin.html` (relativa)
+---
 
-**Contraseña actual:** `admin2025`
+## 🔐 Acceso
 
-⚠️ **IMPORTANTE:** Cambiar la contraseña en producción editando `js/admin.js` línea 10
+**Archivo:** `admin.html`  
+**Contraseña:** `admin2025`
+
+⚠️ **Cambiar en producción:** Editar `js/admin.js` línea 10
 
 ---
 
